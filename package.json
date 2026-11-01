@@ -2,12 +2,13 @@
   "name": "athenaeum",
   "version": "0.1.0",
   "private": true,
-  "description": "Athenaeum — an independent online university where every claim, grade, and AI interaction can be inspected.",
+  "description": "Athenaeum \u2014 an independent online university where every claim, grade, and AI interaction can be inspected.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:preview": "node preview/build.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.135.0",
@@ -19,6 +20,7 @@
     "@types/node": "24.19.2",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.7",
+    "esbuild": "^0.28.2",
     "typescript": "5.9.3"
   }
 }

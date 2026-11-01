@@ -7,7 +7,13 @@ work is assessed by named reviewers against locked rubrics; and the learner's wh
 This repo is the first working build of the design handoff in [`docs/design-handoff/`](docs/design-handoff/README.md)
 (design brief, clickable prototype, and the founder's full 23-area product spec).
 
-## Run it
+## See it
+
+A hosted, clickable preview of the whole site (no install): https://claude.ai/artifact/VXV4SLXXEgHAYpY295ZSwj
+(private to the owner until shared from the page's Share menu). It uses the same pages and components as the app, routed
+in the browser, with the pre-written course answers. `npm run build:preview` regenerates it as `dist/athenaeum.html`.
+
+## Run it locally
 
 ```bash
 npm install

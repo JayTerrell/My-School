@@ -10,8 +10,9 @@
 
 import Anthropic from "@anthropic-ai/sdk";
 import { NextResponse } from "next/server";
-import { passages, retrieve, seededPassageAnswers } from "@/lib/ai/corpus";
-import { course, interruptActions, lecture, quotes, seededAnswers, type InterruptMode, type QuoteId } from "@/lib/data/hist210";
+import { passages, retrieve } from "@/lib/ai/corpus";
+import { parseAskBody as parseBody, seededAnswer as seeded } from "@/lib/ai/seeded";
+import { course, lecture, quotes, type InterruptMode } from "@/lib/data/hist210";
 
 export const runtime = "nodejs";
 
@@ -60,28 +61,6 @@ interface ModelAnswer {
   title: string;
   paragraphs: string[];
   citations: string[];
-}
-
-type AskBody =
-  | { kind: "interrupt"; mode: InterruptMode; at: number }
-  | { kind: "passage"; quote: QuoteId };
-
-function parseBody(raw: unknown): AskBody | null {
-  if (!raw || typeof raw !== "object") return null;
-  const b = raw as Record<string, unknown>;
-  if (b.kind === "interrupt" && interruptActions.some((a) => a.mode === b.mode) && typeof b.at === "number") {
-    return { kind: "interrupt", mode: b.mode as InterruptMode, at: b.at };
-  }
-  if (b.kind === "passage" && typeof b.quote === "string" && b.quote in quotes) {
-    return { kind: "passage", quote: b.quote as QuoteId };
-  }
-  return null;
-}
-
-function seeded(body: AskBody) {
-  if (body.kind === "interrupt") return { ...seededAnswers[body.mode], grounded: true, source: "seed" as const };
-  const a = seededPassageAnswers[body.quote];
-  return { label: "About this passage", ...a, grounded: true, source: "seed" as const };
 }
 
 /** The transcript segment playing at time t (last one that has started). */
