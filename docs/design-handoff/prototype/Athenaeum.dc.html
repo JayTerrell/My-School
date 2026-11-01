@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Libre+Franklin:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #F2EEE4; }
+  * { box-sizing: border-box; }
+  a { color: #2E5E48; text-decoration: none; border-bottom: 1px solid #B9C9BE; }
+  a:hover { color: #1F4534; border-bottom-color: #2E5E48; }
+  button, textarea, input { font-family: 'Libre Franklin', sans-serif; }
+  ::selection { background: #D8E5DB; }
+</style>
+</helmet>
+
+<div style="background:#F2EEE4;min-height:100vh;font-family:'Libre Franklin',sans-serif;color:#1C1A17;-webkit-font-smoothing:antialiased">
+
+  <header style="background:#FFFDF9;border-bottom:1px solid #DFD8C9;position:sticky;top:0;z-index:40">
+    <div style="max-width:1340px;margin:0 auto;padding:14px 24px 0;display:flex;flex-wrap:wrap;align-items:center;gap:18px">
+      <div style="display:flex;align-items:center;gap:10px;padding-bottom:14px">
+        <div style="width:26px;height:26px;border:1px solid #2E5E48;border-radius:50%;display:flex;align-items:center;justify-content:center;font:400 13px 'Newsreader',serif;color:#2E5E48">A</div>
+        <div>
+          <div style="font:500 17px/1 'Newsreader',serif">Athenaeum</div>
+          <div style="font:400 9px/1.4 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#8C857A;margin-top:3px">Independent Programs of Study</div>
+        </div>
+      </div>
+      <div style="flex:1 1 40px"></div>
+      <div style="display:flex;align-items:center;gap:12px;padding-bottom:14px">
+        <div style="text-align:right">
+          <div style="font:500 13px/1.2 'Libre Franklin',sans-serif">Ada Reyes</div>
+          <div style="font:400 10px/1.4 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#8C857A">BA WORLD HISTORY · YR 2</div>
+        </div>
+        <div style="width:34px;height:34px;border-radius:50%;background:#EAF1EC;border:1px solid #C6CFC7;display:flex;align-items:center;justify-content:center;font:400 14px 'Newsreader',serif;color:#2E5E48">AR</div>
+      </div>
+      <nav style="flex:1 1 100%;display:flex;flex-wrap:wrap;gap:2px;margin-bottom:-1px">
+        <button onClick="{{ goDash }}" style="background:transparent;border:none;border-bottom:2px solid {{ uDash }};padding:11px 14px;font:500 13px 'Libre Franklin',sans-serif;color:#57514A;cursor:pointer" style-hover="color:#1C1A17">Dashboard</button>
+        <button onClick="{{ goCatalog }}" style="background:transparent;border:none;border-bottom:2px solid {{ uCatalog }};padding:11px 14px;font:500 13px 'Libre Franklin',sans-serif;color:#57514A;cursor:pointer" style-hover="color:#1C1A17">Catalog</button>
+        <button onClick="{{ goProgram }}" style="background:transparent;border:none;border-bottom:2px solid {{ uProgram }};padding:11px 14px;font:500 13px 'Libre Franklin',sans-serif;color:#57514A;cursor:pointer" style-hover="color:#1C1A17">Program</button>
+        <button onClick="{{ goCourse }}" style="background:transparent;border:none;border-bottom:2px solid {{ uCourse }};padding:11px 14px;font:500 13px 'Libre Franklin',sans-serif;color:#57514A;cursor:pointer" style-hover="color:#1C1A17">Course</button>
+        <button onClick="{{ goLecture }}" style="background:transparent;border:none;border-bottom:2px solid {{ uLecture }};padding:11px 14px;font:500 13px 'Libre Franklin',sans-serif;color:#57514A;cursor:pointer" style-hover="color:#1C1A17">Lecture</button>
+        <button onClick="{{ goReading }}" style="background:transparent;border:none;border-bottom:2px solid {{ uReading }};padding:11px 14px;font:500 13px 'Libre Franklin',sans-serif;color:#57514A;cursor:pointer" style-hover="color:#1C1A17">Reading</button>
+        <button onClick="{{ goEssay }}" style="background:transparent;border:none;border-bottom:2px solid {{ uEssay }};padding:11px 14px;font:500 13px 'Libre Franklin',sans-serif;color:#57514A;cursor:pointer" style-hover="color:#1C1A17">Essay</button>
+        <button onClick="{{ goRecords }}" style="background:transparent;border:none;border-bottom:2px solid {{ uRecords }};padding:11px 14px;font:500 13px 'Libre Franklin',sans-serif;color:#57514A;cursor:pointer" style-hover="color:#1C1A17">Records</button>
+        <button onClick="{{ goPortfolio }}" style="background:transparent;border:none;border-bottom:2px solid {{ uPortfolio }};padding:11px 14px;font:500 13px 'Libre Franklin',sans-serif;color:#57514A;cursor:pointer" style-hover="color:#1C1A17">Portfolio</button>
+      </nav>
+    </div>
+  </header>
+
+  <sc-if value="{{ isDash }}" hint-placeholder-val="{{ true }}">
+  <main style="max-width:1340px;margin:0 auto;padding:36px 24px 72px">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:24px;margin-bottom:28px">
+      <div style="flex:1 1 380px">
+        <div style="font:400 11px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#8C857A;margin-bottom:10px">Autumn Term 2026 · Week 6 of 15</div>
+        <h1 style="font:300 clamp(28px,3.4vw,42px)/1.1 'Newsreader',serif;margin:0 0 10px;letter-spacing:-.01em">Good morning, Ada.</h1>
+        <p style="font:300 16px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0;max-width:52ch;text-wrap:pretty">You're two sessions from finishing Module 4. Take the lecture first — the quiz unlocks when you do, and your essay leans on the same sources.</p>
+      </div>
+      <div style="flex:0 1 auto;display:flex;flex-wrap:wrap;border:1px solid #DFD8C9;background:#FFFDF9;border-radius:3px">
+        <div style="padding:16px 22px;border-right:1px solid #DFD8C9">
+          <div style="font:400 9px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#8C857A">Credits</div>
+          <div style="font:400 26px/1.1 'Newsreader',serif;margin-top:6px">38<span style="color:#B5AEA2;font-size:17px"> / 120</span></div>
+        </div>
+        <div style="padding:16px 22px;border-right:1px solid #DFD8C9">
+          <div style="font:400 9px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#8C857A">Index</div>
+          <div style="font:400 26px/1.1 'Newsreader',serif;margin-top:6px">3.74</div>
+        </div>
+        <div style="padding:16px 22px">
+          <div style="font:400 9px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#8C857A">Standing</div>
+          <div style="font:400 26px/1.1 'Newsreader',serif;margin-top:6px;color:#2E5E48">Good</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:20px;align-items:start">
+
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;grid-column:span 2;min-width:0">
+        <div style="padding:18px 22px;border-bottom:1px solid #EDE7D9;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <h2 style="font:400 20px 'Newsreader',serif;margin:0">Today's agenda</h2>
+          <span style="font:400 11px 'IBM Plex Mono',monospace;color:#8C857A">≈ 2 H 40 M PLANNED</span>
+        </div>
+        <div style="padding:6px 22px 18px">
+          <div onClick="{{ goLecture }}" style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #F0EADC;cursor:pointer" style-hover="background:#FBF8F1">
+            <div style="flex:0 0 58px;font:400 12px 'IBM Plex Mono',monospace;color:#8C857A;padding-top:3px">09:00</div>
+            <div style="flex:1 1 180px;min-width:0">
+              <div style="font:500 15px/1.4 'Libre Franklin',sans-serif">Lecture 4.1 — Palaces, Tin, and the Sea</div>
+              <div style="font:300 13px/1.5 'Libre Franklin',sans-serif;color:#57514A;margin-top:3px">HIST 210 · 42 min · audio-first · 18:24 in</div>
+            </div>
+            <div style="flex:0 0 auto;align-self:center;font:500 12px 'Libre Franklin',sans-serif;color:#2E5E48">Resume →</div>
+          </div>
+          <div onClick="{{ goReading }}" style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #F0EADC;cursor:pointer" style-hover="background:#FBF8F1">
+            <div style="flex:0 0 58px;font:400 12px 'IBM Plex Mono',monospace;color:#8C857A;padding-top:3px">11:00</div>
+            <div style="flex:1 1 180px;min-width:0">
+              <div style="font:500 15px/1.4 'Libre Franklin',sans-serif">Reading — Cline, <em style="font-family:'Newsreader',serif">1177 B.C.</em>, ch. 2</div>
+              <div style="font:300 13px/1.5 'Libre Franklin',sans-serif;color:#57514A;margin-top:3px">pp. 43–78 · 4 of 9 sections worked through</div>
+            </div>
+            <div style="flex:0 0 auto;align-self:center;font:500 12px 'Libre Franklin',sans-serif;color:#2E5E48">Open →</div>
+          </div>
+          <div onClick="{{ goEssay }}" style="display:flex;gap:16px;padding:16px 0;cursor:pointer" style-hover="background:#FBF8F1">
+            <div style="flex:0 0 58px;font:400 12px 'IBM Plex Mono',monospace;color:#8C857A;padding-top:3px">14:30</div>
+            <div style="flex:1 1 180px;min-width:0">
+              <div style="font:500 15px/1.4 'Libre Franklin',sans-serif">Draft — comparative essay, 1,500 words</div>
+              <div style="font:300 13px/1.5 'Libre Franklin',sans-serif;color:#57514A;margin-top:3px">Draft v3 · 1,140 words · due Friday 23:59</div>
+            </div>
+            <div style="flex:0 0 auto;align-self:center;font:500 12px 'Libre Franklin',sans-serif;color:#2E5E48">Write →</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;min-width:0">
+        <div style="padding:18px 22px;border-bottom:1px solid #EDE7D9"><h2 style="font:400 20px 'Newsreader',serif;margin:0">Due soon</h2></div>
+        <div style="padding:8px 22px 18px">
+          <div style="display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid #F0EADC"><span style="font:400 14px/1.4 'Libre Franklin',sans-serif">Module 4 quiz</span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#8A6A2A;white-space:nowrap">2 DAYS</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid #F0EADC"><span style="font:400 14px/1.4 'Libre Franklin',sans-serif">Seminar post + reply</span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#8A6A2A;white-space:nowrap">3 DAYS</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid #F0EADC"><span style="font:400 14px/1.4 'Libre Franklin',sans-serif">Comparative essay draft</span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#57514A;white-space:nowrap">5 DAYS</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px;padding:13px 0"><span style="font:400 14px/1.4 'Libre Franklin',sans-serif">Midterm window opens</span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#8C857A;white-space:nowrap">12 DAYS</span></div>
+        </div>
+      </div>
+
+      <div style="grid-column:span 2;min-width:0">
+        <h2 style="font:400 20px 'Newsreader',serif;margin:0 0 14px">Courses in progress</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px">
+          <div onClick="{{ goCourse }}" style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:18px;cursor:pointer" style-hover="border-color:#2E5E48">
+            <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">HIST 210 · 4 CR</div>
+            <div style="font:400 18px/1.25 'Newsreader',serif;margin:8px 0 14px">World History I: Antiquity</div>
+            <div style="height:3px;background:#EDE7D9;overflow:hidden"><div style="width:62%;height:100%;background:#2E5E48"></div></div>
+            <div style="display:flex;justify-content:space-between;margin-top:10px;font:400 12px 'Libre Franklin',sans-serif;color:#57514A"><span>62% complete</span><span style="font-weight:500;color:#1C1A17">A−</span></div>
+          </div>
+          <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:18px">
+            <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">HIST 240 · 3 CR</div>
+            <div style="font:400 18px/1.25 'Newsreader',serif;margin:8px 0 14px">Sources &amp; Historical Method</div>
+            <div style="height:3px;background:#EDE7D9;overflow:hidden"><div style="width:48%;height:100%;background:#2E5E48"></div></div>
+            <div style="display:flex;justify-content:space-between;margin-top:10px;font:400 12px 'Libre Franklin',sans-serif;color:#57514A"><span>48% complete</span><span style="font-weight:500;color:#1C1A17">B+</span></div>
+          </div>
+          <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:18px">
+            <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">PHIL 180 · 3 CR</div>
+            <div style="font:400 18px/1.25 'Newsreader',serif;margin:8px 0 14px">Ancient Political Thought</div>
+            <div style="height:3px;background:#EDE7D9;overflow:hidden"><div style="width:55%;height:100%;background:#2E5E48"></div></div>
+            <div style="display:flex;justify-content:space-between;margin-top:10px;font:400 12px 'Libre Franklin',sans-serif;color:#57514A"><span>55% complete</span><span style="font-weight:500;color:#1C1A17">A</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;min-width:0">
+        <div style="padding:18px 22px;border-bottom:1px solid #EDE7D9">
+          <h2 style="font:400 20px 'Newsreader',serif;margin:0">Where you're thinnest</h2>
+          <p style="font:300 13px/1.5 'Libre Franklin',sans-serif;color:#57514A;margin:6px 0 0">Drawn from quiz items, seminar posts, and rubric scores.</p>
+        </div>
+        <div style="padding:8px 22px 20px">
+          <div style="padding:14px 0;border-bottom:1px solid #F0EADC">
+            <div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline"><span style="font:400 14px/1.4 'Libre Franklin',sans-serif">Chronology of the collapse</span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#8A6A2A">52%</span></div>
+            <div style="height:2px;background:#EDE7D9;margin-top:8px"><div style="width:52%;height:100%;background:#8A6A2A"></div></div>
+          </div>
+          <div style="padding:14px 0;border-bottom:1px solid #F0EADC">
+            <div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline"><span style="font:400 14px/1.4 'Libre Franklin',sans-serif">Primary vs. secondary evidence</span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#8A6A2A">61%</span></div>
+            <div style="height:2px;background:#EDE7D9;margin-top:8px"><div style="width:61%;height:100%;background:#8A6A2A"></div></div>
+          </div>
+          <div style="padding:14px 0 18px">
+            <div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline"><span style="font:400 14px/1.4 'Libre Franklin',sans-serif">Citing archaeological data</span><span style="font:500 11px 'IBM Plex Mono',monospace;color:#57514A">74%</span></div>
+            <div style="height:2px;background:#EDE7D9;margin-top:8px"><div style="width:74%;height:100%;background:#57514A"></div></div>
+          </div>
+          <button style="background:#2E5E48;color:#FFFDF9;border:none;border-radius:2px;padding:11px 16px;font:500 13px 'Libre Franklin',sans-serif;cursor:pointer;width:100%" style-hover="background:#24493A">Practice these — 14 min</button>
+        </div>
+      </div>
+
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;min-width:0">
+        <div style="padding:18px 22px;border-bottom:1px solid #EDE7D9"><h2 style="font:400 20px 'Newsreader',serif;margin:0">Recent feedback</h2></div>
+        <div style="padding:20px 22px">
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8C857A">HIST 240 · Source analysis 2 · B+</div>
+          <p style="font:300 15px/1.65 'Newsreader',serif;color:#28251F;margin:12px 0 14px;border-left:2px solid #C6CFC7;padding-left:14px;text-wrap:pretty">Your reading of the Amarna correspondence is careful and your provenance note is exactly right. What's missing is the counter-case: Liverani would not accept that the letters show dependency rather than parity. Answer him in one paragraph and this is an A.</p>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <div style="width:28px;height:28px;border-radius:50%;background:#EDE7D9;display:flex;align-items:center;justify-content:center;font:400 12px 'Newsreader',serif;color:#57514A">HM</div>
+            <div>
+              <div style="font:500 12px 'Libre Franklin',sans-serif">Dr. Helen Márquez</div>
+              <div style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">Essay evaluator · verified reviewer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="grid-column:span 2;background:#EAF1EC;border:1px solid #C6CFC7;border-radius:3px;padding:22px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;min-width:0">
+        <div style="flex:1 1 300px">
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#2E5E48">Recommended next</div>
+          <div style="font:400 21px/1.3 'Newsreader',serif;margin:8px 0 6px">Finish Lecture 4.1, then answer Liverani</div>
+          <p style="font:300 14px/1.6 'Libre Franklin',sans-serif;color:#3D4A42;margin:0;max-width:56ch">The last eleven minutes of the lecture cover exactly the dependency argument your reviewer asked about. Listen, then draft the counter-paragraph while it's fresh.</p>
+        </div>
+        <button onClick="{{ goLecture }}" style="background:#2E5E48;color:#FFFDF9;border:none;border-radius:2px;padding:13px 22px;font:500 13px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#24493A">Resume at 18:24</button>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isProgram }}">
+  <main style="max-width:1340px;margin:0 auto;padding:36px 24px 72px">
+    <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;margin-bottom:30px">
+      <div style="flex:1 1 400px">
+        <div style="font:400 11px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#8C857A;margin-bottom:10px">Degree audit · version 3.1</div>
+        <h1 style="font:300 clamp(26px,3.2vw,38px)/1.15 'Newsreader',serif;margin:0 0 8px">Bachelor of Arts, World History</h1>
+        <p style="font:300 15px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0;max-width:60ch">120 workload credits · eight terms · capstone thesis with oral defense.</p>
+      </div>
+      <div style="flex:0 1 auto">
+        <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#8C857A">Projected completion</div>
+        <div style="font:400 30px/1.1 'Newsreader',serif;margin-top:6px">May 2029</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:14px;margin-bottom:32px">
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:18px">
+        <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8C857A">Core</div>
+        <div style="font:400 24px 'Newsreader',serif;margin:8px 0 10px">24<span style="color:#B5AEA2;font-size:15px"> / 48</span></div>
+        <div style="height:3px;background:#EDE7D9"><div style="width:50%;height:100%;background:#2E5E48"></div></div>
+      </div>
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:18px">
+        <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8C857A">Method</div>
+        <div style="font:400 24px 'Newsreader',serif;margin:8px 0 10px">9<span style="color:#B5AEA2;font-size:15px"> / 12</span></div>
+        <div style="height:3px;background:#EDE7D9"><div style="width:75%;height:100%;background:#2E5E48"></div></div>
+      </div>
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:18px">
+        <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8C857A">Electives</div>
+        <div style="font:400 24px 'Newsreader',serif;margin:8px 0 10px">5<span style="color:#B5AEA2;font-size:15px"> / 36</span></div>
+        <div style="height:3px;background:#EDE7D9"><div style="width:14%;height:100%;background:#2E5E48"></div></div>
+      </div>
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:18px">
+        <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8C857A">Capstone</div>
+        <div style="font:400 24px 'Newsreader',serif;margin:8px 0 10px">0<span style="color:#B5AEA2;font-size:15px"> / 12</span></div>
+        <div style="height:3px;background:#EDE7D9"></div>
+      </div>
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:18px">
+        <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8C857A">Orientation</div>
+        <div style="font:400 24px 'Newsreader',serif;margin:8px 0 10px;color:#2E5E48">Passed</div>
+        <div style="height:3px;background:#2E5E48"></div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start">
+      <div style="flex:1 1 540px;min-width:0">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;margin-bottom:14px">
+          <h2 style="font:400 22px 'Newsreader',serif;margin:0">Curriculum map</h2>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">
+            <span><span style="display:inline-block;width:8px;height:8px;background:#2E5E48;margin-right:5px"></span>COMPLETE</span>
+            <span><span style="display:inline-block;width:8px;height:8px;background:#FFFDF9;border:1px solid #2E5E48;margin-right:5px"></span>ACTIVE</span>
+            <span><span style="display:inline-block;width:8px;height:8px;background:#EDE7D9;margin-right:5px"></span>PLANNED</span>
+            <span><span style="display:inline-block;width:8px;height:8px;background:#F2EEE4;border:1px dashed #B5AEA2;margin-right:5px"></span>LOCKED</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));gap:14px">
+          <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:16px">
+            <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;padding-bottom:10px;border-bottom:1px solid #EDE7D9">YEAR 1 · AUTUMN</div>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+              <div style="background:#2E5E48;color:#FFFDF9;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif">ORIE 100 — Orientation<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;margin-top:3px;color:#C3D3C8">1 CR · PASS</span></div>
+              <div style="background:#2E5E48;color:#FFFDF9;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif">HIST 101 — Prehistory to 1000 BCE<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;margin-top:3px;color:#C3D3C8">4 CR · A</span></div>
+              <div style="background:#2E5E48;color:#FFFDF9;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif">WRIT 110 — Academic Writing<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;margin-top:3px;color:#C3D3C8">3 CR · A−</span></div>
+            </div>
+          </div>
+          <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:16px">
+            <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;padding-bottom:10px;border-bottom:1px solid #EDE7D9">YEAR 1 · SPRING</div>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+              <div style="background:#2E5E48;color:#FFFDF9;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif">HIST 102 — Early Civilisations<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;margin-top:3px;color:#C3D3C8">4 CR · B+</span></div>
+              <div style="background:#2E5E48;color:#FFFDF9;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif">GEOG 120 — Historical Geography<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;margin-top:3px;color:#C3D3C8">3 CR · A</span></div>
+              <div style="background:#2E5E48;color:#FFFDF9;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif">PHIL 105 — Logic &amp; Argument<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;margin-top:3px;color:#C3D3C8">3 CR · A−</span></div>
+            </div>
+          </div>
+          <div style="background:#FFFDF9;border:2px solid #2E5E48;border-radius:3px;padding:16px">
+            <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#2E5E48;padding-bottom:10px;border-bottom:1px solid #EDE7D9">YEAR 2 · AUTUMN — CURRENT</div>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+              <div onClick="{{ goCourse }}" style="background:#FFFDF9;border:1px solid #2E5E48;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#EAF1EC">HIST 210 — World History I<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;color:#2E5E48;margin-top:3px">4 CR · A− · WEEK 6</span></div>
+              <div style="background:#FFFDF9;border:1px solid #2E5E48;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif">HIST 240 — Sources &amp; Method<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;color:#2E5E48;margin-top:3px">3 CR · B+ · WEEK 6</span></div>
+              <div style="background:#FFFDF9;border:1px solid #2E5E48;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif">PHIL 180 — Ancient Political Thought<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;color:#2E5E48;margin-top:3px">3 CR · A · WEEK 6</span></div>
+            </div>
+          </div>
+          <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:16px">
+            <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;padding-bottom:10px;border-bottom:1px solid #EDE7D9">YEAR 2 · SPRING</div>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+              <div style="background:#EDE7D9;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif;color:#3D3A34">HIST 211 — World History II<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;color:#8C857A;margin-top:3px">4 CR · PLANNED</span></div>
+              <div style="background:#F2EEE4;border:1px dashed #B5AEA2;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif;color:#7C766B">HIST 320 — Archaeology Seminar<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;margin-top:3px">REQUIRES HIST 240</span></div>
+              <div style="background:#EDE7D9;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif;color:#3D3A34">Elective — open slot<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;color:#8C857A;margin-top:3px">3 CR · CHOOSE BY 12 MAR</span></div>
+            </div>
+          </div>
+          <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:16px">
+            <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;padding-bottom:10px;border-bottom:1px solid #EDE7D9">YEARS 3–4</div>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+              <div style="background:#EDE7D9;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif;color:#3D3A34">Regional concentration — 4 courses<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;color:#8C857A;margin-top:3px">16 CR</span></div>
+              <div style="background:#EDE7D9;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif;color:#3D3A34">Electives — 7 courses<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;color:#8C857A;margin-top:3px">25 CR</span></div>
+              <div style="background:#F2EEE4;border:1px dashed #B5AEA2;border-radius:2px;padding:9px 11px;font:400 12px/1.35 'Libre Franklin',sans-serif;color:#7C766B">HIST 499 — Capstone Thesis<span style="display:block;font:400 10px 'IBM Plex Mono',monospace;margin-top:3px">REQUIRES 90 CR + METHOD</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:16px">
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:20px">
+          <h3 style="font:400 18px 'Newsreader',serif;margin:0 0 12px">Graduation criteria</h3>
+          <div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #F0EADC"><span style="color:#2E5E48;font-size:13px">✓</span><span style="font:300 13px/1.5 'Libre Franklin',sans-serif;flex:1">120 credits, min. 2.0 index <span style="color:#8C857A">— 38 earned</span></span></div>
+          <div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #F0EADC"><span style="color:#2E5E48;font-size:13px">✓</span><span style="font:300 13px/1.5 'Libre Franklin',sans-serif;flex:1">Orientation &amp; integrity agreement</span></div>
+          <div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #F0EADC"><span style="color:#B5AEA2;font-size:13px">○</span><span style="font:300 13px/1.5 'Libre Franklin',sans-serif;flex:1">Method sequence, 12 cr</span></div>
+          <div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #F0EADC"><span style="color:#B5AEA2;font-size:13px">○</span><span style="font:300 13px/1.5 'Libre Franklin',sans-serif;flex:1">Capstone thesis + oral defense</span></div>
+          <div style="display:flex;gap:10px;padding:9px 0"><span style="color:#B5AEA2;font-size:13px">○</span><span style="font:300 13px/1.5 'Libre Franklin',sans-serif;flex:1">Public dossier published</span></div>
+        </div>
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:20px">
+          <h3 style="font:400 18px 'Newsreader',serif;margin:0 0 6px">Curriculum provenance</h3>
+          <p style="font:300 13px/1.55 'Libre Franklin',sans-serif;color:#57514A;margin:0 0 14px">Each badge states exactly what was inspected.</p>
+          <div style="font:400 11px/1.5 'IBM Plex Mono',monospace;color:#3D3A34;padding:10px 12px;background:#F7F4ED;border-left:2px solid #2E5E48;margin-bottom:8px">Scope &amp; sequence reviewed — H. Márquez, PhD, Jan 2026</div>
+          <div style="font:400 11px/1.5 'IBM Plex Mono',monospace;color:#3D3A34;padding:10px 12px;background:#F7F4ED;border-left:2px solid #2E5E48;margin-bottom:8px">Reading list reviewed for balance — T. Osei, MLIS, Feb 2026</div>
+          <div style="font:400 11px/1.5 'IBM Plex Mono',monospace;color:#7C766B;padding:10px 12px;background:#F7F4ED;border-left:2px solid #DFD8C9">Capstone external examiner — not yet assigned</div>
+        </div>
+        <div style="background:#F7F4ED;border:1px solid #DFD8C9;border-radius:3px;padding:18px">
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8A6A2A;margin-bottom:8px">Disclosure</div>
+          <p style="font:300 12.5px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0">Athenaeum is not an accredited institution and does not confer accredited degrees. This program yields an independent credential whose value rests on the inspectable work behind it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;margin-top:28px;padding:clamp(20px,3vw,32px)">
+      <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end;margin-bottom:24px">
+        <div style="flex:1 1 360px">
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#8C857A;margin-bottom:8px">Full schedule · {{ myCount }} courses · {{ myCredits }} credits</div>
+          <h2 style="font:400 clamp(22px,2.6vw,28px)/1.2 'Newsreader',serif;margin:0 0 6px">Every class in your program, in order</h2>
+          <p style="font:300 14px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0;max-width:60ch">Open any course for its syllabus, weekly time, and how it's assessed.</p>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;font:400 10px 'IBM Plex Mono',monospace;color:#57514A">
+          <span><span style="display:inline-block;width:8px;height:8px;background:#2E5E48;margin-right:5px"></span>COMPLETE</span>
+          <span><span style="display:inline-block;width:8px;height:8px;border:1px solid #2E5E48;margin-right:5px"></span>IN PROGRESS</span>
+          <span><span style="display:inline-block;width:8px;height:8px;background:#EDE7D9;margin-right:5px"></span>PLANNED</span>
+        </div>
+      </div>
+      <sc-for list="{{ myTerms }}" as="t" hint-placeholder-count="4">
+        <div style="margin-bottom:24px">
+          <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;padding-bottom:10px;border-bottom:1px solid #DFD8C9">
+            <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap">
+              <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#2E5E48">{{ t.num }}</span>
+              <span style="font:400 18px 'Newsreader',serif">{{ t.label }}</span>
+            </div>
+            <span style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#8C857A">{{ t.meta }}</span>
+          </div>
+          <sc-for list="{{ t.courses }}" as="c" hint-placeholder-count="4">
+            <div style="border-bottom:1px solid #F0EADC">
+              <div onClick="{{ c.toggle }}" style="display:flex;gap:14px;align-items:center;padding:14px 4px;cursor:pointer;flex-wrap:wrap" style-hover="background:#FBF8F1">
+                <span style="flex:0 0 24px;font:400 11px 'IBM Plex Mono',monospace;color:#B5AEA2">{{ c.n }}</span>
+                <span style="flex:0 0 74px;font:400 11px 'IBM Plex Mono',monospace;color:#8C857A">{{ c.code }}</span>
+                <span style="flex:1 1 200px;min-width:0;font:400 14.5px/1.4 'Libre Franklin',sans-serif">{{ c.title }}<span style="display:block;font:300 12px/1.5 'Libre Franklin',sans-serif;color:#7C766B;margin-top:2px">{{ c.prereqText }}</span></span>
+                <span style="flex:0 0 auto;font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;padding:4px 7px;border-radius:2px;background:{{ c.stBg }};color:{{ c.stFg }};border:1px solid {{ c.stBorder }}">{{ c.status }}</span>
+                <span style="flex:0 0 42px;text-align:right;font:400 11px 'IBM Plex Mono',monospace;color:#57514A">{{ c.crText }}</span>
+                <span style="flex:0 0 14px;text-align:center;color:#2E5E48;font:400 16px 'Libre Franklin',sans-serif">{{ c.chev }}</span>
+              </div>
+              <sc-if value="{{ c.open }}">
+                <div style="padding:4px 4px 22px 38px;display:flex;flex-wrap:wrap;gap:24px">
+                  <div style="flex:1 1 300px;min-width:0">
+                    <p style="font:300 14.5px/1.7 'Newsreader',serif;color:#28251F;margin:0 0 14px;max-width:62ch">{{ c.desc }}</p>
+                    <sc-if value="{{ c.hasUnits }}">
+                      <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8C857A;margin-bottom:6px">SYLLABUS — UNITS IN ORDER</div>
+                      <sc-for list="{{ c.units }}" as="u" hint-placeholder-count="4">
+                        <div style="display:flex;gap:12px;padding:8px 0;border-top:1px solid #F0EADC;font:300 13.5px/1.5 'Libre Franklin',sans-serif;color:#3D3A34"><span style="flex:0 0 52px;font:400 10px 'IBM Plex Mono',monospace;color:#2E5E48;padding-top:3px">{{ u.n }}</span><span style="flex:1 1 auto">{{ u.t }}</span></div>
+                      </sc-for>
+                    </sc-if>
+                  </div>
+                  <div style="flex:0 1 230px;min-width:200px;background:#F7F4ED;border:1px solid #DFD8C9;border-radius:2px;padding:14px;font:300 12.5px/1.6 'Libre Franklin',sans-serif;color:#3D3A34;align-self:flex-start">
+                    <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">TIME</div>
+                    <div style="margin:2px 0 10px">{{ c.time }}</div>
+                    <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">ASSESSMENT</div>
+                    <div style="margin:2px 0 10px">{{ c.assess }}</div>
+                    <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">PREREQUISITES</div>
+                    <div style="margin-top:2px">{{ c.prereq }}</div>
+                  </div>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isCourse }}">
+  <main style="max-width:1340px;margin:0 auto;padding:36px 24px 72px">
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;margin-bottom:26px">
+      <div style="flex:1 1 400px">
+        <div style="font:400 11px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#8C857A;margin-bottom:10px">HIST 210 · 4 credits · Autumn 2026</div>
+        <h1 style="font:300 clamp(26px,3.2vw,38px)/1.15 'Newsreader',serif;margin:0 0 8px">World History I: Antiquity</h1>
+        <p style="font:300 15px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0;max-width:62ch">Fourteen modules from the first cities to the end of the Bronze Age, taught from an approved corpus of 23 sources.</p>
+      </div>
+      <div style="flex:0 1 auto;text-align:right">
+        <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#8C857A">Current grade</div>
+        <div style="font:400 34px/1 'Newsreader',serif;margin-top:6px">A−</div>
+        <div style="font:400 12px 'IBM Plex Mono',monospace;color:#57514A;margin-top:4px">91.4 / 100</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:24px;align-items:center">
+      <div style="flex:0 0 auto;font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;padding-right:8px">MODULES</div>
+      <sc-for list="{{ modules }}" as="m" hint-placeholder-count="14">
+        <div style="flex:0 0 auto;width:30px;height:30px;border-radius:2px;background:{{ m.bg }};border:{{ m.border }};color:{{ m.fg }};display:flex;align-items:center;justify-content:center;font:400 12px 'IBM Plex Mono',monospace">{{ m.n }}</div>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start">
+      <div style="flex:1 1 540px;min-width:0">
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:26px;margin-bottom:20px">
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#2E5E48">Module 4 · Week 6 · ≈ 7 h</div>
+          <h2 style="font:400 clamp(22px,2.6vw,29px)/1.2 'Newsreader',serif;margin:10px 0 14px;max-width:26ch">The Bronze Age World: Trade, Palaces, Religion, and Collapse</h2>
+          <p style="font:300 15px/1.65 'Libre Franklin',sans-serif;color:#57514A;margin:0 0 20px;max-width:64ch;text-wrap:pretty">By the end of this module you should be able to argue — from evidence, not assertion — why a network of literate palace economies came apart within two generations.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px">
+            <div style="font:300 13px/1.5 'Libre Franklin',sans-serif;color:#3D3A34;padding-left:12px;border-left:2px solid #C6CFC7">Map the tin and copper routes and explain palace dependence on them.</div>
+            <div style="font:300 13px/1.5 'Libre Franklin',sans-serif;color:#3D3A34;padding-left:12px;border-left:2px solid #C6CFC7">Read a diplomatic tablet as evidence of parity or dependency.</div>
+            <div style="font:300 13px/1.5 'Libre Franklin',sans-serif;color:#3D3A34;padding-left:12px;border-left:2px solid #C6CFC7">Weigh the four standing explanations of the collapse against each other.</div>
+            <div style="font:300 13px/1.5 'Libre Franklin',sans-serif;color:#3D3A34;padding-left:12px;border-left:2px solid #C6CFC7">Distinguish what the archaeology shows from what it is taken to show.</div>
+          </div>
+        </div>
+
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;margin-bottom:20px">
+          <div style="padding:18px 22px;border-bottom:1px solid #EDE7D9;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+            <h3 style="font:400 19px 'Newsreader',serif;margin:0">Module checklist</h3>
+            <span style="font:400 11px 'IBM Plex Mono',monospace;color:#8C857A">2 OF 6 COMPLETE</span>
+          </div>
+          <div style="padding:4px 22px 18px">
+            <div style="display:flex;gap:14px;align-items:center;padding:15px 0;border-bottom:1px solid #F0EADC">
+              <span style="flex:0 0 18px;height:18px;border-radius:50%;background:#2E5E48;color:#FFFDF9;display:flex;align-items:center;justify-content:center;font-size:10px">✓</span>
+              <div style="flex:1 1 180px;min-width:0;font:400 14.5px/1.4 'Libre Franklin',sans-serif;color:#7C766B;text-decoration:line-through">Reading — Cline ch. 1; Amarna letters EA 7, 35</div>
+              <span style="font:400 11px 'IBM Plex Mono',monospace;color:#8C857A;white-space:nowrap">90 MIN</span>
+            </div>
+            <div onClick="{{ goLecture }}" style="display:flex;gap:14px;align-items:center;padding:15px 0;border-bottom:1px solid #F0EADC;cursor:pointer" style-hover="background:#FBF8F1">
+              <span style="flex:0 0 18px;height:18px;border-radius:50%;border:2px solid #2E5E48;display:block"></span>
+              <div style="flex:1 1 180px;min-width:0">
+                <div style="font:500 14.5px/1.4 'Libre Franklin',sans-serif">Lecture 4.1 — Palaces, Tin, and the Sea</div>
+                <div style="font:300 12.5px 'Libre Franklin',sans-serif;color:#2E5E48;margin-top:3px">In progress — 18:24 of 42:00</div>
+              </div>
+              <span style="font:400 11px 'IBM Plex Mono',monospace;color:#2E5E48;white-space:nowrap">RESUME</span>
+            </div>
+            <div onClick="{{ goReading }}" style="display:flex;gap:14px;align-items:center;padding:15px 0;border-bottom:1px solid #F0EADC;cursor:pointer" style-hover="background:#FBF8F1">
+              <span style="flex:0 0 18px;height:18px;border-radius:50%;border:1px solid #C9C2B4;display:block"></span>
+              <div style="flex:1 1 180px;min-width:0">
+                <div style="font:400 14.5px/1.4 'Libre Franklin',sans-serif">Primary source set — six tablets, annotated</div>
+                <div style="font:300 12.5px 'Libre Franklin',sans-serif;color:#57514A;margin-top:3px">Annotate at least four passages</div>
+              </div>
+              <span style="font:400 11px 'IBM Plex Mono',monospace;color:#8C857A;white-space:nowrap">60 MIN</span>
+            </div>
+            <div style="display:flex;gap:14px;align-items:center;padding:15px 0;border-bottom:1px solid #F0EADC">
+              <span style="flex:0 0 18px;height:18px;border-radius:50%;border:1px solid #C9C2B4;display:block"></span>
+              <div style="flex:1 1 180px;min-width:0">
+                <div style="font:400 14.5px/1.4 'Libre Franklin',sans-serif">Seminar post + one substantive reply</div>
+                <div style="font:300 12.5px 'Libre Franklin',sans-serif;color:#8A6A2A;margin-top:3px">Due in 3 days · claim + evidence + counter required</div>
+              </div>
+              <span style="font:400 11px 'IBM Plex Mono',monospace;color:#8C857A;white-space:nowrap">15% CAT.</span>
+            </div>
+            <div style="display:flex;gap:14px;align-items:center;padding:15px 0;border-bottom:1px solid #F0EADC">
+              <span style="flex:0 0 18px;height:18px;border-radius:50%;border:1px dashed #B5AEA2;display:block"></span>
+              <div style="flex:1 1 180px;min-width:0">
+                <div style="font:400 14.5px/1.4 'Libre Franklin',sans-serif;color:#7C766B">Module 4 quiz — 18 items</div>
+                <div style="font:300 12.5px 'Libre Franklin',sans-serif;color:#7C766B;margin-top:3px">Unlocks when Lecture 4.1 is complete</div>
+              </div>
+              <span style="font:400 11px 'IBM Plex Mono',monospace;color:#8C857A;white-space:nowrap">LOCKED</span>
+            </div>
+            <div onClick="{{ goEssay }}" style="display:flex;gap:14px;align-items:center;padding:15px 0;cursor:pointer" style-hover="background:#FBF8F1">
+              <span style="flex:0 0 18px;height:18px;border-radius:50%;border:2px solid #2E5E48;display:block"></span>
+              <div style="flex:1 1 180px;min-width:0">
+                <div style="font:500 14.5px/1.4 'Libre Franklin',sans-serif">Comparative essay — 1,500 words</div>
+                <div style="font:300 12.5px 'Libre Franklin',sans-serif;color:#2E5E48;margin-top:3px">Draft v3 saved · 1,140 words · due Friday</div>
+              </div>
+              <span style="font:400 11px 'IBM Plex Mono',monospace;color:#2E5E48;white-space:nowrap">WRITE</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px">
+          <div style="padding:18px 22px;border-bottom:1px solid #EDE7D9">
+            <h3 style="font:400 19px 'Newsreader',serif;margin:0">Seminar — Module 4</h3>
+            <p style="font:300 13px/1.55 'Libre Franklin',sans-serif;color:#57514A;margin:6px 0 0">Posts are structured: a claim, the evidence for it, and the strongest objection you can find.</p>
+          </div>
+          <div style="padding:20px 22px">
+            <div style="background:#F7F4ED;border:1px solid #DFD8C9;border-radius:3px;padding:16px;margin-bottom:18px">
+              <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8C857A;margin-bottom:8px">This week's prompt</div>
+              <p style="font:400 16px/1.6 'Newsreader',serif;margin:0;color:#28251F">Single-cause explanations of the Bronze Age collapse have all failed. Choose the one you find weakest and say precisely what evidence defeats it.</p>
+            </div>
+            <div style="border-left:2px solid #DFD8C9;padding-left:16px;margin-bottom:18px">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap">
+                <div style="width:22px;height:22px;border-radius:50%;background:#EDE7D9;display:flex;align-items:center;justify-content:center;font:400 11px 'Newsreader',serif;color:#57514A">JT</div>
+                <span style="font:500 12.5px 'Libre Franklin',sans-serif">J. Tarrant</span>
+                <span style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">COHORT · 2 DAYS AGO</span>
+              </div>
+              <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#2E5E48;margin-bottom:4px">CLAIM</div>
+              <p style="font:300 14px/1.65 'Libre Franklin',sans-serif;margin:0 0 10px;color:#28251F">The drought-only explanation is the weakest, because its timeline is too coarse to explain the sequence of destructions.</p>
+              <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#2E5E48;margin-bottom:4px">EVIDENCE</div>
+              <p style="font:300 14px/1.65 'Libre Franklin',sans-serif;margin:0 0 10px;color:#28251F">Kaniewski's pollen cores give a multi-decade signal; Ugarit and Hattusa fall within a handful of years of each other.</p>
+              <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#8A6A2A;margin-bottom:4px">STRONGEST OBJECTION</div>
+              <p style="font:300 14px/1.65 'Libre Franklin',sans-serif;margin:0;color:#57514A">Drought need not be proximate — it could raise the probability of every other cause at once.</p>
+            </div>
+            <div style="background:#EAF1EC;border:1px solid #C6CFC7;border-radius:3px;padding:16px;margin-bottom:18px">
+              <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#2E5E48;margin-bottom:8px">Facilitator · grounded in the course corpus</div>
+              <p style="font:300 14px/1.65 'Libre Franklin',sans-serif;margin:0;color:#28251F">Ada — Tarrant's objection is the interesting one, and it's the same move Liverani makes against you in your last paper. If drought is a multiplier rather than a cause, what observation would tell the two apart? Cline offers one on p. 152; say whether you find it decisive.</p>
+            </div>
+            <button style="background:#2E5E48;color:#FFFDF9;border:none;border-radius:2px;padding:12px 18px;font:500 13px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#24493A">Compose claim → evidence → counter</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1 1 290px;min-width:0;display:flex;flex-direction:column;gap:16px">
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:20px">
+          <h3 style="font:400 18px 'Newsreader',serif;margin:0 0 4px">How the grade is built</h3>
+          <div style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A;margin-bottom:16px">EARNED 91.4 · 62% OF TERM GRADED</div>
+          <sc-for list="{{ weights }}" as="w" hint-placeholder-count="5">
+            <div style="margin-bottom:12px">
+              <div style="display:flex;justify-content:space-between;font:400 12.5px 'Libre Franklin',sans-serif;margin-bottom:5px"><span>{{ w.name }}</span><span style="font-family:'IBM Plex Mono',monospace;color:{{ w.color }}">{{ w.score }}</span></div>
+              <div style="height:3px;background:#EDE7D9"><div style="width:{{ w.pct }};height:100%;background:#2E5E48"></div></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:20px">
+          <h3 style="font:400 18px 'Newsreader',serif;margin:0 0 12px">Approved corpus</h3>
+          <p style="font:300 13px/1.55 'Libre Franklin',sans-serif;color:#57514A;margin:0 0 14px">Nothing in this course — lecture, quiz, or tutor answer — is drawn from outside these 23 sources without being marked supplemental.</p>
+          <div style="font:400 12px/1.6 'Libre Franklin',sans-serif;color:#3D3A34;border-top:1px solid #F0EADC;padding:9px 0">Cline, <em style="font-family:'Newsreader',serif">1177 B.C.</em> <span style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">· LICENSED</span></div>
+          <div style="font:400 12px/1.6 'Libre Franklin',sans-serif;color:#3D3A34;border-top:1px solid #F0EADC;padding:9px 0">Moran, <em style="font-family:'Newsreader',serif">The Amarna Letters</em> <span style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">· LICENSED</span></div>
+          <div style="font:400 12px/1.6 'Libre Franklin',sans-serif;color:#3D3A34;border-top:1px solid #F0EADC;padding:9px 0">Kaniewski et al., <em style="font-family:'Newsreader',serif">PLoS ONE</em> 2013 <span style="font:400 10px 'IBM Plex Mono',monospace;color:#2E5E48">· OPEN</span></div>
+          <div style="font:400 12px/1.6 'Libre Franklin',sans-serif;color:#3D3A34;border-top:1px solid #F0EADC;padding:9px 0">Uluburun wreck catalogue, INA <span style="font:400 10px 'IBM Plex Mono',monospace;color:#2E5E48">· OPEN</span></div>
+          <div style="font:400 11px 'IBM Plex Mono',monospace;color:#2E5E48;border-top:1px solid #F0EADC;padding:12px 0 0;cursor:pointer">+ 19 MORE →</div>
+        </div>
+        <div style="background:#F7F4ED;border:1px solid #DFD8C9;border-radius:3px;padding:18px">
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8A6A2A;margin-bottom:8px">AI use in this course</div>
+          <p style="font:300 12.5px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0 0 10px"><strong style="font-weight:500;color:#1C1A17">Level 2.</strong> Tutoring, practice, outlining, and feedback are permitted and logged. Generated prose may not appear in submitted work.</p>
+          <div style="font:400 11px 'IBM Plex Mono',monospace;color:#2E5E48;cursor:pointer">READ THE FULL POLICY →</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isLecture }}">
+  <main style="max-width:1340px;margin:0 auto;padding:28px 24px 72px">
+    <div style="display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start">
+      <div style="flex:1 1 560px;min-width:0">
+        <div style="background:#1C1A17;border-radius:3px;padding:clamp(22px,3vw,34px);color:#F2EEE4">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:baseline">
+            <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#A8A096">HIST 210 · Module 4 · Lecture 4.1</div>
+            <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#A8A096">{{ mode }}</div>
+          </div>
+          <h1 style="font:300 clamp(24px,3vw,34px)/1.2 'Newsreader',serif;margin:14px 0 6px;color:#F7F4ED">Palaces, Tin, and the Sea</h1>
+          <p style="font:300 14px/1.6 'Libre Franklin',sans-serif;color:#C0B9AD;margin:0 0 26px;max-width:58ch">Why a network of palace economies needed metal it could not produce, and what that dependence cost them.</p>
+          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+            <button onClick="{{ toggle }}" style="flex:0 0 auto;width:52px;height:52px;border-radius:50%;background:#EAF1EC;border:none;color:#1C1A17;font:400 15px 'Libre Franklin',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:#FFFDF9">{{ playIcon }}</button>
+            <div style="flex:1 1 200px;min-width:0">
+              <div style="height:4px;background:#3A3630;border-radius:2px;overflow:hidden"><div style="height:100%;background:#EAF1EC;width:{{ pct }}"></div></div>
+              <div style="display:flex;justify-content:space-between;margin-top:8px;font:400 11px 'IBM Plex Mono',monospace;color:#A8A096"><span>{{ clock }}</span><span>42:00</span></div>
+            </div>
+            <div style="flex:0 0 auto;display:flex;gap:6px">
+              <button style="background:transparent;border:1px solid #5A544C;color:#C0B9AD;border-radius:2px;padding:7px 11px;font:400 11px 'IBM Plex Mono',monospace;cursor:pointer" style-hover="border-color:#A8A096;color:#F2EEE4">1.0×</button>
+              <button style="background:transparent;border:1px solid #5A544C;color:#C0B9AD;border-radius:2px;padding:7px 11px;font:400 11px 'IBM Plex Mono',monospace;cursor:pointer" style-hover="border-color:#A8A096;color:#F2EEE4">BOOKMARK</button>
+            </div>
+          </div>
+          <div style="margin-top:26px;padding-top:22px;border-top:1px solid #38342E">
+            <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#A8A096;margin-bottom:12px">Interrupt the lecture</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <button onClick="{{ askSimpler }}" style="background:#26231F;border:1px solid #5A544C;color:#F2EEE4;border-radius:2px;padding:9px 14px;font:400 12.5px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#333029;border-color:#A8A096">Say that more simply</button>
+              <button onClick="{{ askDeeper }}" style="background:#26231F;border:1px solid #5A544C;color:#F2EEE4;border-radius:2px;padding:9px 14px;font:400 12.5px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#333029;border-color:#A8A096">Go deeper</button>
+              <button onClick="{{ askExample }}" style="background:#26231F;border:1px solid #5A544C;color:#F2EEE4;border-radius:2px;padding:9px 14px;font:400 12.5px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#333029;border-color:#A8A096">Give me an example</button>
+              <button onClick="{{ askCounter }}" style="background:#26231F;border:1px solid #5A544C;color:#F2EEE4;border-radius:2px;padding:9px 14px;font:400 12.5px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#333029;border-color:#A8A096">Who disagrees?</button>
+              <button onClick="{{ askQuiz }}" style="background:#26231F;border:1px solid #5A544C;color:#F2EEE4;border-radius:2px;padding:9px 14px;font:400 12.5px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#333029;border-color:#A8A096">Check I understood</button>
+            </div>
+          </div>
+        </div>
+
+        <sc-if value="{{ hasAnswer }}">
+        <div style="background:#EAF1EC;border:1px solid #C6CFC7;border-radius:0 0 3px 3px;padding:24px">
+          <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;margin-bottom:12px">
+            <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#2E5E48">Paused at {{ clock }} · {{ ansLabel }}</div>
+            <button onClick="{{ resume }}" style="background:transparent;border:none;font:500 12px 'Libre Franklin',sans-serif;color:#2E5E48;cursor:pointer;padding:0">Resume lecture ↻</button>
+          </div>
+          <h3 style="font:400 21px/1.3 'Newsreader',serif;margin:0 0 12px;color:#1C1A17">{{ ansTitle }}</h3>
+          <p style="font:300 15px/1.7 'Libre Franklin',sans-serif;color:#28251F;margin:0 0 12px;max-width:66ch;text-wrap:pretty">{{ ansBody1 }}</p>
+          <p style="font:300 15px/1.7 'Libre Franklin',sans-serif;color:#28251F;margin:0 0 18px;max-width:66ch;text-wrap:pretty">{{ ansBody2 }}</p>
+          <div style="border-top:1px solid #C6CFC7;padding-top:14px">
+            <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#2E5E48;margin-bottom:8px">Drawn from</div>
+            <div style="font:400 12px/1.6 'IBM Plex Mono',monospace;color:#3D4A42">{{ ansCite1 }}</div>
+            <div style="font:400 12px/1.6 'IBM Plex Mono',monospace;color:#3D4A42">{{ ansCite2 }}</div>
+          </div>
+        </div>
+        </sc-if>
+
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;margin-top:20px">
+          <div style="padding:18px 22px;border-bottom:1px solid #EDE7D9;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+            <h2 style="font:400 19px 'Newsreader',serif;margin:0">Transcript</h2>
+            <span style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#8C857A">TAP A SOURCE MARK TO INSPECT THE CLAIM</span>
+          </div>
+          <div style="padding:8px 22px 24px">
+            <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #F0EADC;background:{{ bg1 }}">
+              <div style="flex:0 0 46px;font:400 11px 'IBM Plex Mono',monospace;color:#8C857A;padding-top:5px">15:02</div>
+              <p style="flex:1 1 200px;min-width:0;font:300 16px/1.75 'Newsreader',serif;color:#28251F;margin:0">A palace at Mycenae or Ugarit could grow its own grain, press its own oil, and weave its own cloth. What it could not do was make bronze. The tin came from somewhere east of Mesopotamia — perhaps Afghanistan — and the copper from Cyprus.<button onClick="{{ pickC1 }}" style="background:#EAF1EC;border:1px solid #C6CFC7;color:#2E5E48;border-radius:2px;padding:1px 5px;font:500 10px 'IBM Plex Mono',monospace;cursor:pointer;vertical-align:super;margin-left:4px" style-hover="background:#2E5E48;color:#FFFDF9">S1</button></p>
+            </div>
+            <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #F0EADC;background:{{ bg2 }}">
+              <div style="flex:0 0 46px;font:400 11px 'IBM Plex Mono',monospace;color:#8C857A;padding-top:5px">17:40</div>
+              <p style="flex:1 1 200px;min-width:0;font:300 16px/1.75 'Newsreader',serif;color:#28251F;margin:0">So every palace was structurally dependent on people it could not govern. You can watch the anxiety of that dependence in the diplomatic correspondence: kings addressing each other as brothers while haggling over shipments of copper.<button onClick="{{ pickC2 }}" style="background:#EAF1EC;border:1px solid #C6CFC7;color:#2E5E48;border-radius:2px;padding:1px 5px;font:500 10px 'IBM Plex Mono',monospace;cursor:pointer;vertical-align:super;margin-left:4px" style-hover="background:#2E5E48;color:#FFFDF9">S2</button></p>
+            </div>
+            <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #F0EADC;background:{{ bg3 }}">
+              <div style="flex:0 0 46px;font:400 11px 'IBM Plex Mono',monospace;color:#8C857A;padding-top:5px">20:15</div>
+              <p style="flex:1 1 200px;min-width:0;font:300 16px/1.75 'Newsreader',serif;color:#28251F;margin:0">Then, within about fifty years, nearly every one of these palaces burns or is abandoned. I want to be careful here, because this is where the corpus you've been assigned does not speak with one voice.<button onClick="{{ pickC3 }}" style="background:#F4EDDC;border:1px solid #D9C89B;color:#8A6A2A;border-radius:2px;padding:1px 5px;font:500 10px 'IBM Plex Mono',monospace;cursor:pointer;vertical-align:super;margin-left:4px" style-hover="background:#8A6A2A;color:#FFFDF9">S3</button></p>
+            </div>
+            <div style="display:flex;gap:16px;padding:16px 0">
+              <div style="flex:0 0 46px;font:400 11px 'IBM Plex Mono',monospace;color:#8C857A;padding-top:5px">23:48</div>
+              <p style="flex:1 1 200px;min-width:0;font:300 16px/1.75 'Newsreader',serif;color:#7C766B;margin:0">Cline treats the collapse as a systems failure — a network so interdependent that shocks propagated. Liverani reads the same evidence as the end of a particular political form…</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:16px">
+        <sc-if value="{{ hasClaim }}">
+        <div style="background:#FFFDF9;border:2px solid #2E5E48;border-radius:3px;padding:20px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:12px">
+            <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#2E5E48">Claim inspector · {{ claimId }}</div>
+            <button onClick="{{ closeClaim }}" style="background:transparent;border:none;color:#8C857A;font-size:15px;cursor:pointer;padding:0;line-height:1">✕</button>
+          </div>
+          <div style="font:400 11px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:{{ claimColor }};margin-bottom:12px">{{ claimStatus }}</div>
+          <h3 style="font:400 17px/1.35 'Newsreader',serif;margin:0 0 4px">{{ claimSource }}</h3>
+          <div style="font:400 11px 'IBM Plex Mono',monospace;color:#8C857A;margin-bottom:14px">{{ claimLoc }} · {{ claimKind }}</div>
+          <p style="font:400 14.5px/1.7 'Newsreader',serif;color:#28251F;margin:0 0 14px;padding-left:12px;border-left:2px solid #C6CFC7;text-wrap:pretty">{{ claimExcerpt }}</p>
+          <p style="font:300 13px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0 0 16px">{{ claimNote }}</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button onClick="{{ goReading }}" style="background:#2E5E48;color:#FFFDF9;border:none;border-radius:2px;padding:9px 14px;font:500 12px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#24493A">Open in reader</button>
+            <button style="background:transparent;color:#2E5E48;border:1px solid #C6CFC7;border-radius:2px;padding:9px 14px;font:500 12px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="border-color:#2E5E48">Save to notebook</button>
+          </div>
+        </div>
+        </sc-if>
+
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:20px">
+          <h3 style="font:400 18px 'Newsreader',serif;margin:0 0 14px">Notes at timestamps</h3>
+          <div style="border-top:1px solid #F0EADC;padding:12px 0">
+            <div style="font:400 10px 'IBM Plex Mono',monospace;color:#2E5E48;margin-bottom:5px">15:12</div>
+            <p style="font:300 13px/1.6 'Libre Franklin',sans-serif;margin:0;color:#3D3A34">Bronze = imported tin + imported copper. Dependence is built into the material itself. Use this as the essay's opening move.</p>
+          </div>
+          <div style="border-top:1px solid #F0EADC;padding:12px 0">
+            <div style="font:400 10px 'IBM Plex Mono',monospace;color:#2E5E48;margin-bottom:5px">17:55</div>
+            <p style="font:300 13px/1.6 'Libre Franklin',sans-serif;margin:0;color:#3D3A34">"Brothers" language ≠ parity. Check EA 35 again — is Alashiya negotiating from strength?</p>
+          </div>
+          <textarea placeholder="Note at this moment — it will be stamped and linked…" style="width:100%;margin-top:12px;min-height:74px;background:#F7F4ED;border:1px solid #DFD8C9;border-radius:2px;padding:11px;font:300 13px/1.6 'Libre Franklin',sans-serif;color:#1C1A17;resize:vertical"></textarea>
+        </div>
+
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:20px">
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#8C857A;margin-bottom:10px">Knowledge check at 21:00</div>
+          <p style="font:400 16px/1.5 'Newsreader',serif;margin:0 0 14px;color:#28251F">Which of these would most weaken a drought-only account of the collapse?</p>
+          <button style="width:100%;text-align:left;background:#F7F4ED;border:1px solid #DFD8C9;border-radius:2px;padding:11px 13px;font:300 13.5px/1.5 'Libre Franklin',sans-serif;color:#28251F;cursor:pointer;margin-bottom:7px" style-hover="border-color:#2E5E48;background:#EAF1EC">Destruction layers separated by only a few years</button>
+          <button style="width:100%;text-align:left;background:#F7F4ED;border:1px solid #DFD8C9;border-radius:2px;padding:11px 13px;font:300 13.5px/1.5 'Libre Franklin',sans-serif;color:#28251F;cursor:pointer;margin-bottom:7px" style-hover="border-color:#2E5E48;background:#EAF1EC">Pollen cores showing a long dry period</button>
+          <button style="width:100%;text-align:left;background:#F7F4ED;border:1px solid #DFD8C9;border-radius:2px;padding:11px 13px;font:300 13.5px/1.5 'Libre Franklin',sans-serif;color:#28251F;cursor:pointer" style-hover="border-color:#2E5E48;background:#EAF1EC">Letters requesting emergency grain shipments</button>
+        </div>
+
+        <div style="background:#F7F4ED;border:1px solid #DFD8C9;border-radius:3px;padding:18px">
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8C857A;margin-bottom:8px">Recorded this session</div>
+          <p style="font:300 12.5px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0">Lecture time, interruptions, and every source you inspected are written to your authorship record. You can see exactly what it says.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isReading }}">
+  <main style="max-width:1340px;margin:0 auto;padding:28px 24px 72px">
+    <div style="display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start">
+      <div style="flex:1 1 230px;max-width:290px;min-width:0">
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:20px;margin-bottom:16px">
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#8C857A;margin-bottom:10px">Assigned source</div>
+          <h3 style="font:400 19px/1.3 'Newsreader',serif;margin:0 0 6px">1177 B.C.: The Year Civilization Collapsed</h3>
+          <div style="font:300 13px/1.5 'Libre Franklin',sans-serif;color:#57514A">Eric H. Cline · Princeton UP, rev. ed. 2021</div>
+          <div style="margin-top:14px;padding-top:14px;border-top:1px solid #F0EADC;font:400 10.5px/1.8 'IBM Plex Mono',monospace;color:#57514A">
+            <div>TYPE · SECONDARY, MONOGRAPH</div>
+            <div>ACCESS · LICENSED</div>
+            <div>REVIEWED · H. MÁRQUEZ, JAN 2026</div>
+          </div>
+        </div>
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:20px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px">
+            <h3 style="font:400 17px 'Newsreader',serif;margin:0">Chapter 2</h3>
+            <span style="font:400 10px 'IBM Plex Mono',monospace;color:#2E5E48">4 / 9</span>
+          </div>
+          <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="9">
+            <div style="font:{{ sec.font }};color:{{ sec.color }};padding:8px 0;border-top:1px solid #F0EADC;text-decoration:{{ sec.deco }}">{{ sec.label }}</div>
+          </sc-for>
+          <p style="font:300 11.5px/1.55 'Libre Franklin',sans-serif;color:#7C766B;margin:14px 0 0;padding-top:12px;border-top:1px solid #F0EADC">Sections count as read when you've worked through them — not when the page opens.</p>
+        </div>
+      </div>
+
+      <div style="flex:1 1 430px;min-width:0">
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:clamp(24px,3.4vw,48px)">
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#8C857A;margin-bottom:6px">§5 · pp. 61–64</div>
+          <h2 style="font:400 clamp(24px,2.8vw,32px)/1.25 'Newsreader',serif;margin:0 0 26px">Kings as brothers</h2>
+          <div style="max-width:64ch">
+            <p style="font:300 18px/1.85 'Newsreader',serif;color:#211E1A;margin:0 0 22px;text-wrap:pretty">The letters exchanged between the great courts of the fourteenth century are, on their surface, documents of warmth. Rulers address one another as brothers. They ask after each other's households, horses, and chariots, and they send extravagant gifts.</p>
+            <p style="font:300 18px/1.85 'Newsreader',serif;color:#211E1A;margin:0 0 22px;text-wrap:pretty">But <span onClick="{{ pickQ1 }}" style="background:#E6F0E8;border-bottom:1px solid #2E5E48;cursor:pointer;padding:1px 0">the language of kinship in these archives is a protocol, not a description. It regulates what may be asked for and in what tone; it does not tell us who needed whom.</span> A king who must write three times for a shipment of copper is not, whatever he is called, an equal.</p>
+            <p style="font:300 18px/1.85 'Newsreader',serif;color:#211E1A;margin:0 0 22px;text-wrap:pretty">The Alashiya correspondence is the sharpest case. <span onClick="{{ pickQ2 }}" style="background:#FAF4E4;border-bottom:1px solid #8A6A2A;cursor:pointer;padding:1px 0">Cyprus held the copper, and the Cypriot king writes with a confidence that sits oddly beside the deferential formulas he is obliged to use.</span> Historians have read this either as evidence of a genuine multipolar order or as evidence that the formulas had come loose from the realities they once described.</p>
+            <p style="font:300 18px/1.85 'Newsreader',serif;color:#211E1A;margin:0 0 22px;text-wrap:pretty">We should be candid that the archive is partial. <span onClick="{{ pickQ3 }}" style="background:#E6F0E8;border-bottom:1px solid #2E5E48;cursor:pointer;padding:1px 0">What survives at Amarna is what one Egyptian administration chose to keep, in one place, for a few decades.</span> Arguments about the whole system rest on a keyhole view of it.</p>
+            <p style="font:300 18px/1.85 'Newsreader',serif;color:#7C766B;margin:0;text-wrap:pretty">Even so, the keyhole shows something unmistakable: an economy of prestige goods that moved by sea, in quantity, under royal sanction…</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;padding-top:22px;border-top:1px solid #EDE7D9">
+            <button style="background:#2E5E48;color:#FFFDF9;border:none;border-radius:2px;padding:10px 15px;font:500 12.5px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#24493A">Ask about this passage</button>
+            <button style="background:transparent;color:#2E5E48;border:1px solid #C6CFC7;border-radius:2px;padding:10px 15px;font:500 12.5px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="border-color:#2E5E48">Compare with EA 35</button>
+            <button style="background:transparent;color:#2E5E48;border:1px solid #C6CFC7;border-radius:2px;padding:10px 15px;font:500 12.5px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="border-color:#2E5E48">Five questions on §5</button>
+            <button style="background:transparent;color:#57514A;border:1px solid #DFD8C9;border-radius:2px;padding:10px 15px;font:500 12.5px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="border-color:#8C857A">Mark §5 worked through</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1 1 290px;min-width:0;display:flex;flex-direction:column;gap:16px">
+        <sc-if value="{{ hasQuote }}">
+        <div style="background:#FFFDF9;border:2px solid #2E5E48;border-radius:3px;padding:20px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px">
+            <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#2E5E48">New annotation</div>
+            <button onClick="{{ closeQuote }}" style="background:transparent;border:none;color:#8C857A;font-size:15px;cursor:pointer;padding:0;line-height:1">✕</button>
+          </div>
+          <p style="font:400 14.5px/1.7 'Newsreader',serif;color:#28251F;margin:0 0 14px;padding-left:12px;border-left:2px solid #2E5E48">{{ quoteText }}</p>
+          <textarea value="{{ noteText }}" onChange="{{ onNote }}" placeholder="What do you make of it?" style="width:100%;min-height:80px;background:#F7F4ED;border:1px solid #DFD8C9;border-radius:2px;padding:11px;font:300 13px/1.6 'Libre Franklin',sans-serif;color:#1C1A17;resize:vertical"></textarea>
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8C857A;margin:14px 0 8px">Tag as evidence for</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px">
+            <span style="font:400 11px 'IBM Plex Mono',monospace;background:#EAF1EC;border:1px solid #C6CFC7;color:#2E5E48;border-radius:2px;padding:5px 9px;cursor:pointer">THESIS 2 — DEPENDENCY</span>
+            <span style="font:400 11px 'IBM Plex Mono',monospace;background:#F7F4ED;border:1px solid #DFD8C9;color:#57514A;border-radius:2px;padding:5px 9px;cursor:pointer">MODULE 4</span>
+            <span style="font:400 11px 'IBM Plex Mono',monospace;background:#F7F4ED;border:1px solid #DFD8C9;color:#57514A;border-radius:2px;padding:5px 9px;cursor:pointer">COMP. ESSAY</span>
+          </div>
+          <div style="background:#F7F4ED;border:1px solid #DFD8C9;border-radius:2px;padding:11px;margin-bottom:14px">
+            <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;margin-bottom:6px">CITATION · CHICAGO, AUTO-BUILT</div>
+            <div style="font:300 12px/1.55 'Libre Franklin',sans-serif;color:#3D3A34">{{ quoteCite }}</div>
+          </div>
+          <button onClick="{{ saveQuote }}" style="width:100%;background:#2E5E48;color:#FFFDF9;border:none;border-radius:2px;padding:11px;font:500 12.5px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#24493A">Save to research notebook</button>
+        </div>
+        </sc-if>
+
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:20px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+            <h3 style="font:400 18px 'Newsreader',serif;margin:0">Research notebook</h3>
+            <span style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">{{ savedCount }} ENTRIES</span>
+          </div>
+          <p style="font:300 12.5px/1.55 'Libre Franklin',sans-serif;color:#57514A;margin:0 0 14px">Tagged quotes become citeable evidence in the essay workspace.</p>
+          <div style="border-top:1px solid #F0EADC;padding:12px 0">
+            <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#2E5E48;margin-bottom:6px">THESIS 2 — DEPENDENCY</div>
+            <p style="font:400 13.5px/1.65 'Newsreader',serif;margin:0 0 6px;color:#28251F">"A king who must write three times for a shipment of copper is not, whatever he is called, an equal."</p>
+            <div style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">CLINE 2021, 62</div>
+          </div>
+          <div style="border-top:1px solid #F0EADC;padding:12px 0">
+            <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#8A6A2A;margin-bottom:6px">COUNTER — PARITY READING</div>
+            <p style="font:400 13.5px/1.65 'Newsreader',serif;margin:0 0 6px;color:#28251F">"Send me much copper… and I will send you whatever you desire from my land."</p>
+            <div style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">AMARNA EA 35 · MORAN 1992, 107</div>
+          </div>
+          <div style="border-top:1px solid #F0EADC;padding:12px 0">
+            <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#8C857A;margin-bottom:6px">ARCHIVE LIMITS</div>
+            <p style="font:400 13.5px/1.65 'Newsreader',serif;margin:0 0 6px;color:#28251F">"Arguments about the whole system rest on a keyhole view of it."</p>
+            <div style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">CLINE 2021, 63</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isEssay }}">
+  <main style="max-width:1340px;margin:0 auto;padding:28px 24px 72px">
+    <div style="margin-bottom:24px">
+      <div style="font:400 11px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#8C857A;margin-bottom:10px">HIST 210 · Module 4 · Papers category, 35%</div>
+      <h1 style="font:300 clamp(24px,3vw,36px)/1.15 'Newsreader',serif;margin:0 0 8px">Comparative essay — parity or dependency?</h1>
+      <p style="font:300 15px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0;max-width:66ch">1,500 words · due Friday 23:59 · one revision permitted after feedback · oral defense may be requested.</p>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start">
+      <div style="flex:1 1 520px;min-width:0">
+        <div style="background:#F7F4ED;border:1px solid #DFD8C9;border-radius:3px;padding:22px;margin-bottom:20px">
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#8C857A;margin-bottom:10px">The prompt</div>
+          <p style="font:400 17px/1.6 'Newsreader',serif;margin:0 0 16px;color:#28251F;max-width:62ch">Using at least three approved sources, of which one must be primary, argue whether the Amarna correspondence shows a genuinely multipolar order or a hierarchy dressed in the language of brotherhood. You must state and answer the strongest objection to your reading.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:20px;font:400 11px/1.5 'IBM Plex Mono',monospace;color:#57514A">
+            <span>SOURCES · APPROVED CORPUS</span>
+            <span>OUTSIDE SOURCES · PERMITTED IF MARKED</span>
+            <span>OUTCOMES · LO2, LO4, LO6</span>
+          </div>
+        </div>
+
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;margin-bottom:20px">
+          <div style="padding:14px 20px;border-bottom:1px solid #EDE7D9;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+            <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">DRAFT v3 · SAVED {{ savedAgo }}</div>
+            <div style="font:400 11px 'IBM Plex Mono',monospace;color:{{ wcColor }}">{{ words }} / 1500 WORDS</div>
+          </div>
+          <textarea value="{{ draft }}" onChange="{{ onDraft }}" style="width:100%;min-height:380px;border:none;background:#FFFDF9;padding:clamp(20px,3vw,36px);font:300 17px/1.85 'Newsreader',serif;color:#211E1A;resize:vertical;outline:none"></textarea>
+          <div style="padding:14px 20px;border-top:1px solid #EDE7D9;display:flex;gap:8px;flex-wrap:wrap">
+            <button style="background:transparent;color:#2E5E48;border:1px solid #C6CFC7;border-radius:2px;padding:9px 14px;font:500 12px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="border-color:#2E5E48">Insert citation from notebook</button>
+            <button style="background:transparent;color:#2E5E48;border:1px solid #C6CFC7;border-radius:2px;padding:9px 14px;font:500 12px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="border-color:#2E5E48">Where does this need evidence?</button>
+            <button style="background:transparent;color:#57514A;border:1px solid #DFD8C9;border-radius:2px;padding:9px 14px;font:500 12px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="border-color:#8C857A">Outline view</button>
+          </div>
+        </div>
+
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:22px">
+          <h3 style="font:400 19px 'Newsreader',serif;margin:0">AI use declaration</h3>
+          <p style="font:300 13.5px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:6px 0 18px;max-width:62ch">This assignment is <strong style="font-weight:500;color:#1C1A17">Level 2</strong>: tutoring, outlining, and feedback are permitted; generated prose in the submission is not. Your tutor sessions are already logged — confirm what you actually used.</p>
+
+          <div onClick="{{ tIdeas }}" style="display:flex;gap:12px;align-items:flex-start;padding:13px;border:1px solid {{ bIdeas }};border-radius:2px;background:{{ fIdeas }};cursor:pointer;margin-bottom:8px">
+            <span style="flex:0 0 16px;height:16px;border-radius:2px;border:1px solid #2E5E48;background:{{ kIdeas }};color:#FFFDF9;font-size:10px;display:flex;align-items:center;justify-content:center;margin-top:2px">{{ mIdeas }}</span>
+            <div><div style="font:500 13.5px 'Libre Franklin',sans-serif">Brainstorming and thesis pressure-testing</div><div style="font:300 12.5px/1.5 'Libre Franklin',sans-serif;color:#57514A;margin-top:3px">3 logged tutor sessions · 41 min total</div></div>
+          </div>
+          <div onClick="{{ tCounter }}" style="display:flex;gap:12px;align-items:flex-start;padding:13px;border:1px solid {{ bCounter }};border-radius:2px;background:{{ fCounter }};cursor:pointer;margin-bottom:8px">
+            <span style="flex:0 0 16px;height:16px;border-radius:2px;border:1px solid #2E5E48;background:{{ kCounter }};color:#FFFDF9;font-size:10px;display:flex;align-items:center;justify-content:center;margin-top:2px">{{ mCounter }}</span>
+            <div><div style="font:500 13.5px 'Libre Franklin',sans-serif">Generating counterarguments I then answered</div><div style="font:300 12.5px/1.5 'Libre Franklin',sans-serif;color:#57514A;margin-top:3px">1 logged session · used in section 3</div></div>
+          </div>
+          <div onClick="{{ tFeedback }}" style="display:flex;gap:12px;align-items:flex-start;padding:13px;border:1px solid {{ bFeedback }};border-radius:2px;background:{{ fFeedback }};cursor:pointer;margin-bottom:8px">
+            <span style="flex:0 0 16px;height:16px;border-radius:2px;border:1px solid #2E5E48;background:{{ kFeedback }};color:#FFFDF9;font-size:10px;display:flex;align-items:center;justify-content:center;margin-top:2px">{{ mFeedback }}</span>
+            <div><div style="font:500 13.5px 'Libre Franklin',sans-serif">Feedback on my own draft prose</div><div style="font:300 12.5px/1.5 'Libre Franklin',sans-serif;color:#57514A;margin-top:3px">Permitted at Level 2</div></div>
+          </div>
+          <div onClick="{{ tDraft }}" style="display:flex;gap:12px;align-items:flex-start;padding:13px;border:1px solid {{ bDraft }};border-radius:2px;background:{{ fDraft }};cursor:pointer">
+            <span style="flex:0 0 16px;height:16px;border-radius:2px;border:1px solid #8A6A2A;background:{{ kDraft }};color:#FFFDF9;font-size:10px;display:flex;align-items:center;justify-content:center;margin-top:2px">{{ mDraft }}</span>
+            <div><div style="font:500 13.5px 'Libre Franklin',sans-serif;color:#8A6A2A">Generated prose appears in my submission</div><div style="font:300 12.5px/1.5 'Libre Franklin',sans-serif;color:#57514A;margin-top:3px">Prohibited here — checking this routes the work to integrity review</div></div>
+          </div>
+
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#8C857A;margin:20px 0 8px">Your statement, published with the paper</div>
+          <textarea value="{{ disclosure }}" onChange="{{ onDisclosure }}" style="width:100%;min-height:86px;background:#F7F4ED;border:1px solid #DFD8C9;border-radius:2px;padding:13px;font:300 13.5px/1.7 'Libre Franklin',sans-serif;color:#1C1A17;resize:vertical"></textarea>
+
+          <sc-if value="{{ blocked }}">
+          <div style="background:#FAF4E4;border:1px solid #D9C89B;border-radius:2px;padding:14px;margin-top:14px;font:300 13px/1.6 'Libre Franklin',sans-serif;color:#6E5520">You've declared generated prose in the submission, which this assignment's policy prohibits. You can still submit — it will go to integrity review with your draft history attached, and you'll be asked to discuss it.</div>
+          </sc-if>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;align-items:center">
+            <button onClick="{{ submit }}" style="background:#2E5E48;color:#FFFDF9;border:none;border-radius:2px;padding:13px 22px;font:500 13px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#24493A">{{ submitLabel }}</button>
+            <span style="font:300 12.5px 'Libre Franklin',sans-serif;color:#7C766B">{{ submitNote }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:16px">
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:20px">
+          <h3 style="font:400 18px 'Newsreader',serif;margin:0 0 4px">Rubric — locked</h3>
+          <p style="font:300 12.5px/1.55 'Libre Franklin',sans-serif;color:#57514A;margin:6px 0 14px">Fixed before the assignment opened. Grading runs against these criteria, not an impression of the prose.</p>
+          <sc-for list="{{ rubric }}" as="r" hint-placeholder-count="5">
+            <div style="border-top:1px solid #F0EADC;padding:11px 0">
+              <div style="display:flex;justify-content:space-between;gap:10px;font:500 13px 'Libre Franklin',sans-serif"><span>{{ r.name }}</span><span style="font-family:'IBM Plex Mono',monospace;color:#8C857A">{{ r.pts }}</span></div>
+              <div style="font:300 12px/1.5 'Libre Franklin',sans-serif;color:#57514A;margin-top:3px">{{ r.desc }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:20px">
+          <h3 style="font:400 18px 'Newsreader',serif;margin:0 0 14px">Evidence to hand</h3>
+          <div style="border-top:1px solid #F0EADC;padding:11px 0">
+            <p style="font:400 13.5px/1.6 'Newsreader',serif;margin:0 0 6px;color:#28251F">"A king who must write three times for a shipment of copper is not, whatever he is called, an equal."</p>
+            <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><span style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">CLINE 2021, 62</span><span style="font:500 10px 'IBM Plex Mono',monospace;color:#2E5E48;cursor:pointer">CITE</span></div>
+          </div>
+          <div style="border-top:1px solid #F0EADC;padding:11px 0">
+            <p style="font:400 13.5px/1.6 'Newsreader',serif;margin:0 0 6px;color:#28251F">"Send me much copper… and I will send you whatever you desire from my land."</p>
+            <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><span style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">EA 35 · MORAN 1992, 107</span><span style="font:500 10px 'IBM Plex Mono',monospace;color:#2E5E48;cursor:pointer">CITE</span></div>
+          </div>
+          <div style="border-top:1px solid #F0EADC;padding:11px 0">
+            <p style="font:400 13.5px/1.6 'Newsreader',serif;margin:0 0 6px;color:#28251F">"Arguments about the whole system rest on a keyhole view of it."</p>
+            <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><span style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">CLINE 2021, 63</span><span style="font:500 10px 'IBM Plex Mono',monospace;color:#2E5E48;cursor:pointer">CITE</span></div>
+          </div>
+          <div onClick="{{ goReading }}" style="font:400 11px 'IBM Plex Mono',monospace;color:#2E5E48;padding-top:12px;border-top:1px solid #F0EADC;cursor:pointer">OPEN NOTEBOOK · {{ savedCount }} ENTRIES →</div>
+        </div>
+
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:20px">
+          <h3 style="font:400 18px 'Newsreader',serif;margin:0 0 4px">Authorship receipt</h3>
+          <p style="font:300 12.5px/1.55 'Libre Franklin',sans-serif;color:#57514A;margin:6px 0 16px">Built as you work. It travels with the paper and is visible to anyone who inspects it.</p>
+          <div style="padding-left:14px;border-left:2px solid #DFD8C9;display:flex;flex-direction:column;gap:14px">
+            <sc-for list="{{ receipt }}" as="e" hint-placeholder-count="6">
+              <div>
+                <div style="font:400 10px 'IBM Plex Mono',monospace;color:{{ e.stampColor }}">{{ e.stamp }}</div>
+                <div style="font:400 13px/1.5 'Libre Franklin',sans-serif;color:{{ e.color }}">{{ e.text }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isRecords }}">
+  <main style="max-width:1340px;margin:0 auto;padding:36px 24px 72px">
+    <div style="margin-bottom:24px">
+      <div style="font:400 11px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#8C857A;margin-bottom:10px">Academic record · Ada Reyes · ATH-2024-0193</div>
+      <h1 style="font:300 clamp(24px,3vw,36px)/1.15 'Newsreader',serif;margin:0 0 8px">Gradebook and transcript</h1>
+      <p style="font:300 15px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0;max-width:64ch">Every grade here links to the work that earned it, the rubric it was scored against, and the sources cited in it.</p>
+    </div>
+
+    <div style="display:flex;gap:2px;border-bottom:1px solid #DFD8C9;margin-bottom:26px;flex-wrap:wrap">
+      <button onClick="{{ tabCourse }}" style="background:transparent;border:none;border-bottom:2px solid {{ tbC }};padding:12px 16px;font:500 13px 'Libre Franklin',sans-serif;color:#57514A;cursor:pointer;margin-bottom:-1px" style-hover="color:#1C1A17">Course gradebook</button>
+      <button onClick="{{ tabTerm }}" style="background:transparent;border:none;border-bottom:2px solid {{ tbT }};padding:12px 16px;font:500 13px 'Libre Franklin',sans-serif;color:#57514A;cursor:pointer;margin-bottom:-1px" style-hover="color:#1C1A17">Program transcript</button>
+      <button onClick="{{ tabOutcome }}" style="background:transparent;border:none;border-bottom:2px solid {{ tbO }};padding:12px 16px;font:500 13px 'Libre Franklin',sans-serif;color:#57514A;cursor:pointer;margin-bottom:-1px" style-hover="color:#1C1A17">Outcome mastery</button>
+    </div>
+
+    <sc-if value="{{ gbIsCourse }}">
+    <div>
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;overflow-x:auto">
+        <div style="padding:20px 22px;border-bottom:1px solid #EDE7D9;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:baseline">
+          <h2 style="font:400 20px 'Newsreader',serif;margin:0">HIST 210 — World History I: Antiquity</h2>
+          <div style="font:400 11px 'IBM Plex Mono',monospace;color:#57514A">A− · 91.4 · 62% GRADED</div>
+        </div>
+        <div style="min-width:620px">
+          <div style="display:flex;gap:12px;padding:12px 22px;border-bottom:1px solid #EDE7D9;font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">
+            <div style="flex:1 1 220px">ASSIGNMENT</div><div style="flex:0 0 96px">CATEGORY</div><div style="flex:0 0 90px">STATUS</div><div style="flex:0 0 66px;text-align:right">SCORE</div><div style="flex:0 0 96px;text-align:right">EVIDENCE</div>
+          </div>
+          <sc-for list="{{ gradebook }}" as="g" hint-placeholder-count="7">
+            <div style="display:flex;gap:12px;padding:15px 22px;border-bottom:1px solid #F0EADC;font:400 13.5px 'Libre Franklin',sans-serif;align-items:center;background:{{ g.bg }}">
+              <div style="flex:1 1 220px">{{ g.name }}</div>
+              <div style="flex:0 0 96px;color:#57514A;font-size:12.5px">{{ g.cat }}</div>
+              <div style="flex:0 0 90px;font:400 10px 'IBM Plex Mono',monospace;color:{{ g.statusColor }}">{{ g.status }}</div>
+              <div style="flex:0 0 66px;text-align:right;font-family:'IBM Plex Mono',monospace;color:{{ g.scoreColor }}">{{ g.score }}</div>
+              <div style="flex:0 0 96px;text-align:right;font:500 10px 'IBM Plex Mono',monospace;color:{{ g.linkColor }};cursor:pointer">{{ g.link }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:20px">
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:22px">
+          <h3 style="font:400 18px 'Newsreader',serif;margin:0 0 14px">Rubric history — papers</h3>
+          <p style="font:300 13px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0 0 16px">Counterargument is your weakest dimension across three papers. It is also worth 20 points on Friday's essay.</p>
+          <sc-for list="{{ rubricHistory }}" as="h" hint-placeholder-count="5">
+            <div style="margin-bottom:11px">
+              <div style="display:flex;justify-content:space-between;gap:10px;font:400 12.5px 'Libre Franklin',sans-serif;margin-bottom:5px"><span>{{ h.name }}</span><span style="font-family:'IBM Plex Mono',monospace;color:{{ h.color }}">{{ h.val }}</span></div>
+              <div style="height:3px;background:#EDE7D9"><div style="width:{{ h.pct }};height:100%;background:{{ h.color }}"></div></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:22px">
+          <h3 style="font:400 18px 'Newsreader',serif;margin:0 0 14px">If Friday goes well</h3>
+          <p style="font:300 13px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0 0 18px">Projection, not a promise. Assumes current performance holds on the midterm and final.</p>
+          <div style="display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-top:1px solid #F0EADC;font:400 13.5px 'Libre Franklin',sans-serif"><span>Essay at 90+</span><span style="font-family:'IBM Plex Mono',monospace">A− → A</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-top:1px solid #F0EADC;font:400 13.5px 'Libre Franklin',sans-serif"><span>Essay at 80–89</span><span style="font-family:'IBM Plex Mono',monospace">A− holds</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-top:1px solid #F0EADC;font:400 13.5px 'Libre Franklin',sans-serif"><span>Missed entirely</span><span style="font-family:'IBM Plex Mono',monospace;color:#8A6A2A">B−</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-top:1px solid #F0EADC;font:400 13.5px 'Libre Franklin',sans-serif;color:#57514A"><span>Program index effect</span><span style="font-family:'IBM Plex Mono',monospace">±0.04</span></div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ gbIsTerm }}">
+    <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:clamp(24px,4vw,52px)">
+      <div style="text-align:center;padding-bottom:26px;border-bottom:1px solid #DFD8C9;margin-bottom:26px">
+        <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#8C857A">Athenaeum · Independent Programs of Study</div>
+        <h2 style="font:300 clamp(22px,2.6vw,30px)/1.3 'Newsreader',serif;margin:14px 0 6px">Record of Study</h2>
+        <div style="font:300 14px 'Libre Franklin',sans-serif;color:#57514A">Ada Reyes · BA World History · ATH-2024-0193</div>
+        <div style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A;margin-top:8px">UNOFFICIAL · GENERATED 17 SEP 2026 · NOT AN ACCREDITED DEGREE</div>
+      </div>
+
+      <sc-for list="{{ terms }}" as="t" hint-placeholder-count="4">
+        <div style="margin-bottom:26px">
+          <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#2E5E48;padding-bottom:8px;border-bottom:1px solid #EDE7D9">{{ t.head }}</div>
+          <sc-for list="{{ t.rows }}" as="r" hint-placeholder-count="3">
+            <div style="display:flex;gap:12px;padding:11px 0;font:400 14px 'Libre Franklin',sans-serif;border-bottom:1px solid #F7F4ED">
+              <span style="flex:0 0 86px;font:400 12px 'IBM Plex Mono',monospace;color:#8C857A">{{ r.code }}</span>
+              <span style="flex:1 1 180px">{{ r.title }}</span>
+              <span style="flex:0 0 34px;text-align:right;font:400 12px 'IBM Plex Mono',monospace;color:#57514A">{{ r.cr }}</span>
+              <span style="flex:0 0 40px;text-align:right;font-family:'IBM Plex Mono',monospace;color:{{ r.color }}">{{ r.grade }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+
+      <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end;padding-top:22px;border-top:1px solid #DFD8C9">
+        <div style="font:300 12px/1.6 'Libre Franklin',sans-serif;color:#7C766B;max-width:46ch">* In progress; not yet locked. Locked grades cannot be altered after a term closes except through the documented appeals process. Every line links to its assignments, rubrics, and cited sources.</div>
+        <div style="display:flex;gap:28px;flex-wrap:wrap">
+          <div><div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">CREDITS</div><div style="font:400 24px 'Newsreader',serif">38</div></div>
+          <div><div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">INDEX</div><div style="font:400 24px 'Newsreader',serif">3.74</div></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:24px">
+        <button style="background:#2E5E48;color:#FFFDF9;border:none;border-radius:2px;padding:11px 17px;font:500 12.5px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#24493A">Export dossier (PDF)</button>
+        <button onClick="{{ goPortfolio }}" style="background:transparent;color:#2E5E48;border:1px solid #C6CFC7;border-radius:2px;padding:11px 17px;font:500 12.5px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="border-color:#2E5E48">Public verification page</button>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ gbIsOutcome }}">
+    <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:26px">
+      <h2 style="font:400 21px 'Newsreader',serif;margin:0 0 6px">Mastery by learning outcome</h2>
+      <p style="font:300 14px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0 0 24px;max-width:62ch">Scored from every item that assessed the outcome — quiz questions, rubric dimensions, seminar posts — not from course averages.</p>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="5">
+          <div>
+            <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;margin-bottom:8px">
+              <div style="font:500 14.5px 'Libre Franklin',sans-serif;flex:1 1 300px">{{ o.name }}</div>
+              <div style="font:400 11px 'IBM Plex Mono',monospace;color:{{ o.color }}">{{ o.meta }}</div>
+            </div>
+            <div style="height:5px;background:#EDE7D9"><div style="width:{{ o.pct }};height:100%;background:{{ o.color }}"></div></div>
+            <p style="font:300 12.5px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:8px 0 0">{{ o.note }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isPortfolio }}">
+  <main style="max-width:1340px;margin:0 auto;padding:28px 24px 72px">
+    <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:clamp(26px,4vw,52px);margin-bottom:24px">
+      <div style="display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start;justify-content:space-between">
+        <div style="flex:1 1 420px">
+          <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#8C857A;margin-bottom:14px">Public dossier · athenaeum.study/ada-reyes</div>
+          <h1 style="font:300 clamp(30px,4vw,48px)/1.1 'Newsreader',serif;margin:0 0 12px">Ada Reyes</h1>
+          <p style="font:300 17px/1.6 'Libre Franklin',sans-serif;color:#3D3A34;margin:0 0 20px;max-width:56ch">Reading toward a BA in World History — 38 of 120 credits, third term. Everything below can be opened and checked.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font:400 11px 'IBM Plex Mono',monospace;background:#EAF1EC;border:1px solid #C6CFC7;color:#2E5E48;border-radius:2px;padding:6px 10px">{{ visLabel }}</span>
+            <span style="font:400 11px 'IBM Plex Mono',monospace;background:#F7F4ED;border:1px solid #DFD8C9;color:#57514A;border-radius:2px;padding:6px 10px">INDEX 3.74</span>
+            <span style="font:400 11px 'IBM Plex Mono',monospace;background:#F7F4ED;border:1px solid #DFD8C9;color:#57514A;border-radius:2px;padding:6px 10px">9 COURSES · 4 PAPERS · 1 DEFENSE</span>
+          </div>
+        </div>
+        <div style="flex:0 1 240px;border:1px solid #DFD8C9;border-radius:3px;padding:20px;background:#F7F4ED">
+          <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#8C857A;margin-bottom:10px">Credential status</div>
+          <p style="font:300 12.5px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0 0 12px">Independent program credential. Athenaeum is not accredited and this is not a degree. Its weight comes from the work, which is open.</p>
+          <div style="font:400 11px 'IBM Plex Mono',monospace;color:#2E5E48;cursor:pointer">VERIFY THIS RECORD →</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font:400 clamp(20px,2.4vw,26px) 'Newsreader',serif;margin:0 0 6px">Claims, and the evidence under them</h2>
+    <p style="font:300 14.5px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0 0 18px;max-width:64ch">Open any claim to see what it rests on. Nothing here asks to be taken on trust.</p>
+
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px">
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px">
+        <div onClick="{{ tgA }}" style="padding:20px 22px;display:flex;justify-content:space-between;gap:16px;align-items:center;cursor:pointer;flex-wrap:wrap" style-hover="background:#FBF8F1">
+          <div style="flex:1 1 300px">
+            <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;margin-bottom:6px">HIST 101 · AUTUMN 2024 · LOCKED</div>
+            <div style="font:400 19px/1.35 'Newsreader',serif">Completed Prehistory to 1000 BCE with an A</div>
+          </div>
+          <div style="flex:0 0 auto;font:400 11px 'IBM Plex Mono',monospace;color:#2E5E48">{{ aLabel }}</div>
+        </div>
+        <sc-if value="{{ openA }}">
+        <div style="padding:0 22px 22px;border-top:1px solid #EDE7D9">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;padding-top:20px">
+            <div>
+              <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;margin-bottom:8px">WHAT WAS DONE</div>
+              <div style="font:300 13px/1.7 'Libre Franklin',sans-serif;color:#3D3A34">14 modules · 11 h 20 m of lecture, 96% complete<br />1,240 pages across 19 approved sources<br />12 quizzes · 3 papers · 26 seminar posts</div>
+            </div>
+            <div>
+              <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;margin-bottom:8px">HOW IT WAS SCORED</div>
+              <div style="font:300 13px/1.7 'Libre Franklin',sans-serif;color:#3D3A34">Quizzes 91 · Papers 95 · Seminar 93<br />Midterm 89 · Final 94<br />Rubrics locked before opening</div>
+            </div>
+            <div>
+              <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;margin-bottom:8px">WHO CHECKED IT</div>
+              <div style="font:300 13px/1.7 'Libre Franklin',sans-serif;color:#3D3A34">Final paper evaluated by H. Márquez, PhD<br />Oral defense, 22 min, recorded<br />Scope &amp; sequence reviewed Jan 2026</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px">
+            <button style="background:#2E5E48;color:#FFFDF9;border:none;border-radius:2px;padding:9px 14px;font:500 12px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#24493A">Read the final paper</button>
+            <button style="background:transparent;color:#2E5E48;border:1px solid #C6CFC7;border-radius:2px;padding:9px 14px;font:500 12px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="border-color:#2E5E48">Watch the defense</button>
+            <button style="background:transparent;color:#2E5E48;border:1px solid #C6CFC7;border-radius:2px;padding:9px 14px;font:500 12px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="border-color:#2E5E48">Authorship receipt</button>
+            <button style="background:transparent;color:#57514A;border:1px solid #DFD8C9;border-radius:2px;padding:9px 14px;font:500 12px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="border-color:#8C857A">Source list</button>
+          </div>
+        </div>
+        </sc-if>
+      </div>
+
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px">
+        <div onClick="{{ tgB }}" style="padding:20px 22px;display:flex;justify-content:space-between;gap:16px;align-items:center;cursor:pointer;flex-wrap:wrap" style-hover="background:#FBF8F1">
+          <div style="flex:1 1 300px">
+            <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;margin-bottom:6px">HIST 240 · PAPER · B+ → A− ON REVISION</div>
+            <div style="font:400 19px/1.35 'Newsreader',serif">Wrote a defensible reading of the Amarna letters</div>
+          </div>
+          <div style="flex:0 0 auto;font:400 11px 'IBM Plex Mono',monospace;color:#2E5E48">{{ bLabel }}</div>
+        </div>
+        <sc-if value="{{ openB }}">
+        <div style="padding:0 22px 22px;border-top:1px solid #EDE7D9">
+          <p style="font:400 16px/1.75 'Newsreader',serif;color:#28251F;margin:20px 0 16px;max-width:64ch;padding-left:14px;border-left:2px solid #C6CFC7">"The formulas of brotherhood in the Amarna archive are best read as a protocol of exchange rather than a description of standing — but the Alashiya letters are a real problem for that reading, and I do not think Liverani can be dismissed."</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+            <div>
+              <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;margin-bottom:8px">PROCESS</div>
+              <div style="font:300 13px/1.7 'Libre Franklin',sans-serif;color:#3D3A34">4 drafts over 9 days<br />11 tagged quotes, 8 cited<br />3 tutor sessions, 41 min, all logged</div>
+            </div>
+            <div>
+              <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;margin-bottom:8px">AI USE, DECLARED</div>
+              <div style="font:300 13px/1.7 'Libre Franklin',sans-serif;color:#3D3A34">Thesis pressure-testing · yes<br />Counterarguments generated then answered · yes<br />Generated prose in submission · no</div>
+            </div>
+            <div>
+              <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;margin-bottom:8px">EVALUATION</div>
+              <div style="font:300 13px/1.7 'Libre Franklin',sans-serif;color:#3D3A34">Rubric 88 → 91 after revision<br />Counterargument 13/20 → 17/20<br />Evaluator: H. Márquez, PhD</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px">
+            <button style="background:#2E5E48;color:#FFFDF9;border:none;border-radius:2px;padding:9px 14px;font:500 12px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#24493A">Read both versions side by side</button>
+            <button style="background:transparent;color:#2E5E48;border:1px solid #C6CFC7;border-radius:2px;padding:9px 14px;font:500 12px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="border-color:#2E5E48">Draft timeline</button>
+            <button style="background:transparent;color:#2E5E48;border:1px solid #C6CFC7;border-radius:2px;padding:9px 14px;font:500 12px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="border-color:#2E5E48">Reviewer's full comments</button>
+          </div>
+        </div>
+        </sc-if>
+      </div>
+
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px">
+        <div onClick="{{ tgC }}" style="padding:20px 22px;display:flex;justify-content:space-between;gap:16px;align-items:center;cursor:pointer;flex-wrap:wrap" style-hover="background:#FBF8F1">
+          <div style="flex:1 1 300px">
+            <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A;margin-bottom:6px">TRANSPARENCY RECORD · ALL TERMS</div>
+            <div style="font:400 19px/1.35 'Newsreader',serif">Used AI throughout, and declared all of it</div>
+          </div>
+          <div style="flex:0 0 auto;font:400 11px 'IBM Plex Mono',monospace;color:#2E5E48">{{ cLabel }}</div>
+        </div>
+        <sc-if value="{{ openC }}">
+        <div style="padding:0 22px 22px;border-top:1px solid #EDE7D9">
+          <p style="font:300 14.5px/1.7 'Libre Franklin',sans-serif;color:#3D3A34;margin:20px 0 18px;max-width:66ch">The lectures, practice questions, and tutoring in this program are generated from an approved corpus. That is not hidden — it is the point, and here is the full accounting of where it touched my work.</p>
+          <sc-for list="{{ transparency }}" as="tr" hint-placeholder-count="5">
+            <div style="display:flex;gap:14px;flex-wrap:wrap;padding:12px 0;border-top:1px solid #F0EADC;font:400 13.5px 'Libre Franklin',sans-serif"><span style="flex:1 1 240px">{{ tr.label }}</span><span style="flex:0 0 auto;font:400 12px 'IBM Plex Mono',monospace;color:{{ tr.color }}">{{ tr.value }}</span></div>
+          </sc-for>
+        </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:22px">
+        <h3 style="font:400 18px 'Newsreader',serif;margin:0 0 14px">Written work</h3>
+        <div style="border-top:1px solid #F0EADC;padding:12px 0"><div style="font:400 14.5px/1.4 'Newsreader',serif">Reading the Amarna Correspondence</div><div style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A;margin-top:4px">HIST 240 · 2,100 WORDS · A−</div></div>
+        <div style="border-top:1px solid #F0EADC;padding:12px 0"><div style="font:400 14.5px/1.4 'Newsreader',serif">What the Uluburun Manifest Cannot Tell Us</div><div style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A;margin-top:4px">HIST 210 · 1,600 WORDS · 94</div></div>
+        <div style="border-top:1px solid #F0EADC;padding:12px 0"><div style="font:400 14.5px/1.4 'Newsreader',serif">Cities Before Writing</div><div style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A;margin-top:4px">HIST 101 · 2,400 WORDS · A</div></div>
+        <div style="border-top:1px solid #F0EADC;padding:12px 0"><div style="font:400 14.5px/1.4 'Newsreader',serif">Two Readings of the Mycenaean Tablets</div><div style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A;margin-top:4px">HIST 102 · 1,800 WORDS · B+</div></div>
+      </div>
+      <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:22px">
+        <h3 style="font:400 18px 'Newsreader',serif;margin:0 0 14px">What reviewers said</h3>
+        <div style="border-top:1px solid #F0EADC;padding:14px 0">
+          <p style="font:300 14px/1.7 'Newsreader',serif;color:#28251F;margin:0 0 8px">"Reads primary material with unusual care for a second-year student. Should be braver about disagreeing with her sources."</p>
+          <div style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">H. MÁRQUEZ, PhD · ESSAY EVALUATOR</div>
+        </div>
+        <div style="border-top:1px solid #F0EADC;padding:14px 0">
+          <p style="font:300 14px/1.7 'Newsreader',serif;color:#28251F;margin:0 0 8px">"Defense was calm and specific. When pressed on chronology she conceded the limits of her evidence rather than bluffing — the right instinct."</p>
+          <div style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">ORAL DEFENSE PANEL · HIST 101</div>
+        </div>
+      </div>
+      <div style="background:#F7F4ED;border:1px solid #DFD8C9;border-radius:3px;padding:22px">
+        <h3 style="font:400 18px 'Newsreader',serif;margin:0 0 14px">What this page controls</h3>
+        <p style="font:300 13px/1.65 'Libre Franklin',sans-serif;color:#57514A;margin:0 0 16px">You choose what is public. Grades, papers, receipts, and defenses can each be shown, hidden, or shared by private link — and a viewer is always told when something is withheld.</p>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;gap:10px;font:400 12.5px 'Libre Franklin',sans-serif;padding:9px 0;border-top:1px solid #E5DECF"><span>Transcript &amp; grades</span><span style="font:400 10px 'IBM Plex Mono',monospace;color:#2E5E48">PUBLIC</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px;font:400 12.5px 'Libre Franklin',sans-serif;padding:9px 0;border-top:1px solid #E5DECF"><span>Papers &amp; receipts</span><span style="font:400 10px 'IBM Plex Mono',monospace;color:#2E5E48">PUBLIC</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px;font:400 12.5px 'Libre Franklin',sans-serif;padding:9px 0;border-top:1px solid #E5DECF"><span>Defense recordings</span><span style="font:400 10px 'IBM Plex Mono',monospace;color:#57514A">LINK ONLY</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px;font:400 12.5px 'Libre Franklin',sans-serif;padding:9px 0;border-top:1px solid #E5DECF"><span>Tutor transcripts</span><span style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">PRIVATE</span></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isCatalog }}">
+  <main style="max-width:1340px;margin:0 auto;padding:36px 24px 80px">
+
+    <sc-if value="{{ catList }}">
+    <div>
+      <div style="padding:clamp(12px,3vw,40px) 0 clamp(24px,4vw,48px);border-bottom:1px solid #DFD8C9;margin-bottom:28px;display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end">
+        <div style="flex:1 1 460px">
+          <div style="font:400 11px 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#8C857A;margin-bottom:14px">Catalog of programs · 2026–27</div>
+          <h1 style="font:300 clamp(34px,5vw,60px)/1.05 'Newsreader',serif;margin:0 0 16px;letter-spacing:-.015em;max-width:16ch">A full course of study, every step of it in the open.</h1>
+          <p style="font:300 17px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0;max-width:56ch;text-wrap:pretty">Each program below lists every class you'll take, in the order you'll take it, with its syllabus and the time it asks of you. Nothing is revealed after you enroll that you can't read now.</p>
+        </div>
+        <div style="flex:0 1 260px;font:300 12.5px/1.6 'Libre Franklin',sans-serif;color:#57514A;border-left:2px solid #DFD8C9;padding-left:16px">Athenaeum is an independent school and is not accredited. Programs lead to an independent credential backed by a public, inspectable record of the work.</div>
+      </div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:24px">
+        <span style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8C857A;margin-right:6px">SHOW</span>
+        <sc-for list="{{ catFilters }}" as="f" hint-placeholder-count="4">
+          <button onClick="{{ f.pick }}" style="background:{{ f.bg }};color:{{ f.fg }};border:1px solid {{ f.border }};border-radius:2px;padding:8px 14px;font:500 12.5px 'Libre Franklin',sans-serif;cursor:pointer">{{ f.label }}</button>
+        </sc-for>
+        <span style="font:400 11px 'IBM Plex Mono',monospace;color:#8C857A;margin-left:auto">{{ catCount }}</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:18px">
+        <sc-for list="{{ catPrograms }}" as="p" hint-placeholder-count="6">
+          <div onClick="{{ p.open }}" style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:24px;cursor:pointer;display:flex;flex-direction:column;gap:14px" style-hover="border-color:#2E5E48;background:#FFFEFB">
+            <div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline">
+              <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#2E5E48">{{ p.level }}</span>
+              <span style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">{{ p.intake }}</span>
+            </div>
+            <h2 style="font:400 25px/1.2 'Newsreader',serif;margin:0">{{ p.name }}</h2>
+            <p style="font:300 14px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0;flex:1 1 auto;text-wrap:pretty">{{ p.summary }}</p>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #EDE7D9;padding-top:14px;gap:8px">
+              <div><div style="font:400 9px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">LENGTH</div><div style="font:400 16px 'Newsreader',serif;margin-top:3px">{{ p.years }}</div></div>
+              <div><div style="font:400 9px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">CREDITS</div><div style="font:400 16px 'Newsreader',serif;margin-top:3px">{{ p.credits }}</div></div>
+              <div><div style="font:400 9px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">COURSES</div><div style="font:400 16px 'Newsreader',serif;margin-top:3px">{{ p.count }}</div></div>
+            </div>
+            <div style="font:500 12.5px 'Libre Franklin',sans-serif;color:#2E5E48">See every class and syllabus →</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ catDetail }}">
+    <div>
+      <button onClick="{{ catBack }}" style="background:transparent;border:none;padding:0;font:500 12.5px 'Libre Franklin',sans-serif;color:#2E5E48;cursor:pointer;margin-bottom:22px">← All programs</button>
+
+      <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;padding-bottom:28px;border-bottom:1px solid #DFD8C9;margin-bottom:24px">
+        <div style="flex:1 1 460px">
+          <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#2E5E48;margin-bottom:12px">{{ cp.level }} · {{ cp.intake }}</div>
+          <h1 style="font:300 clamp(30px,4.2vw,50px)/1.08 'Newsreader',serif;margin:0 0 14px;letter-spacing:-.01em">{{ cp.name }}</h1>
+          <p style="font:300 16.5px/1.65 'Libre Franklin',sans-serif;color:#3D3A34;margin:0;max-width:60ch;text-wrap:pretty">{{ cp.summary }}</p>
+        </div>
+        <div style="flex:0 1 auto;display:flex;flex-wrap:wrap;border:1px solid #DFD8C9;background:#FFFDF9;border-radius:3px">
+          <div style="padding:16px 20px;border-right:1px solid #DFD8C9"><div style="font:400 9px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8C857A">LENGTH</div><div style="font:400 22px 'Newsreader',serif;margin-top:5px">{{ cp.years }}</div></div>
+          <div style="padding:16px 20px;border-right:1px solid #DFD8C9"><div style="font:400 9px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8C857A">TERMS</div><div style="font:400 22px 'Newsreader',serif;margin-top:5px">{{ cp.termsN }}</div></div>
+          <div style="padding:16px 20px;border-right:1px solid #DFD8C9"><div style="font:400 9px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8C857A">COURSES</div><div style="font:400 22px 'Newsreader',serif;margin-top:5px">{{ cp.count }}</div></div>
+          <div style="padding:16px 20px;border-right:1px solid #DFD8C9"><div style="font:400 9px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8C857A">CREDITS</div><div style="font:400 22px 'Newsreader',serif;margin-top:5px">{{ cp.credits }}</div></div>
+          <div style="padding:16px 20px"><div style="font:400 9px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8C857A">WEEKLY</div><div style="font:400 22px 'Newsreader',serif;margin-top:5px">{{ cp.hours }}</div></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:30px">
+        <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8C857A;margin-bottom:10px">TIME FRAME</div>
+        <div style="display:flex;gap:4px;overflow-x:auto;padding-bottom:4px">
+          <sc-for list="{{ catTerms }}" as="t" hint-placeholder-count="8">
+            <div style="flex:1 0 118px;background:#FFFDF9;border:1px solid #DFD8C9;border-top:3px solid #2E5E48;border-radius:2px;padding:10px 12px">
+              <div style="font:500 10px 'IBM Plex Mono',monospace;color:#2E5E48">{{ t.num }}</div>
+              <div style="font:400 13px/1.35 'Libre Franklin',sans-serif;margin:4px 0 6px">{{ t.label }}</div>
+              <div style="font:400 10px 'IBM Plex Mono',monospace;color:#8C857A">{{ t.short }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+        <div style="flex:1 1 580px;min-width:0;background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:clamp(20px,3vw,32px)">
+          <h2 style="font:400 clamp(22px,2.6vw,28px)/1.2 'Newsreader',serif;margin:0 0 6px">Program schedule — every class, in order</h2>
+          <p style="font:300 14px/1.6 'Libre Franklin',sans-serif;color:#57514A;margin:0 0 26px;max-width:60ch">Open any course to read its syllabus, weekly time, and how it's assessed.</p>
+          <sc-for list="{{ catTerms }}" as="t" hint-placeholder-count="4">
+            <div style="margin-bottom:24px">
+              <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;padding-bottom:10px;border-bottom:1px solid #DFD8C9">
+                <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap">
+                  <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#2E5E48">{{ t.num }}</span>
+                  <span style="font:400 18px 'Newsreader',serif">{{ t.label }}</span>
+                </div>
+                <span style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#8C857A">{{ t.meta }}</span>
+              </div>
+              <sc-for list="{{ t.courses }}" as="c" hint-placeholder-count="4">
+                <div style="border-bottom:1px solid #F0EADC">
+                  <div onClick="{{ c.toggle }}" style="display:flex;gap:14px;align-items:center;padding:14px 4px;cursor:pointer;flex-wrap:wrap" style-hover="background:#FBF8F1">
+                    <span style="flex:0 0 24px;font:400 11px 'IBM Plex Mono',monospace;color:#B5AEA2">{{ c.n }}</span>
+                    <span style="flex:0 0 74px;font:400 11px 'IBM Plex Mono',monospace;color:#8C857A">{{ c.code }}</span>
+                    <span style="flex:1 1 200px;min-width:0;font:400 14.5px/1.4 'Libre Franklin',sans-serif">{{ c.title }}<span style="display:block;font:300 12px/1.5 'Libre Franklin',sans-serif;color:#7C766B;margin-top:2px">{{ c.prereqText }}</span></span>
+                    <span style="flex:0 0 42px;text-align:right;font:400 11px 'IBM Plex Mono',monospace;color:#57514A">{{ c.crText }}</span>
+                    <span style="flex:0 0 14px;text-align:center;color:#2E5E48;font:400 16px 'Libre Franklin',sans-serif">{{ c.chev }}</span>
+                  </div>
+                  <sc-if value="{{ c.open }}">
+                    <div style="padding:4px 4px 22px 38px;display:flex;flex-wrap:wrap;gap:24px">
+                      <div style="flex:1 1 300px;min-width:0">
+                        <p style="font:300 14.5px/1.7 'Newsreader',serif;color:#28251F;margin:0 0 14px;max-width:62ch">{{ c.desc }}</p>
+                        <sc-if value="{{ c.hasUnits }}">
+                          <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8C857A;margin-bottom:6px">SYLLABUS — UNITS IN ORDER</div>
+                          <sc-for list="{{ c.units }}" as="u" hint-placeholder-count="4">
+                            <div style="display:flex;gap:12px;padding:8px 0;border-top:1px solid #F0EADC;font:300 13.5px/1.5 'Libre Franklin',sans-serif;color:#3D3A34"><span style="flex:0 0 52px;font:400 10px 'IBM Plex Mono',monospace;color:#2E5E48;padding-top:3px">{{ u.n }}</span><span style="flex:1 1 auto">{{ u.t }}</span></div>
+                          </sc-for>
+                        </sc-if>
+                      </div>
+                      <div style="flex:0 1 230px;min-width:200px;background:#F7F4ED;border:1px solid #DFD8C9;border-radius:2px;padding:14px;font:300 12.5px/1.6 'Libre Franklin',sans-serif;color:#3D3A34;align-self:flex-start">
+                        <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">TIME</div>
+                        <div style="margin:2px 0 10px">{{ c.time }}</div>
+                        <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">ASSESSMENT</div>
+                        <div style="margin:2px 0 10px">{{ c.assess }}</div>
+                        <div style="font:400 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8C857A">PREREQUISITES</div>
+                        <div style="margin-top:2px">{{ c.prereq }}</div>
+                      </div>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:16px;position:sticky;top:130px">
+          <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:22px">
+            <h3 style="font:400 19px 'Newsreader',serif;margin:0 0 14px">By the end you will be able to</h3>
+            <sc-for list="{{ cpOutcomes }}" as="o" hint-placeholder-count="3">
+              <div style="font:300 13.5px/1.6 'Libre Franklin',sans-serif;color:#3D3A34;padding:10px 0 10px 12px;border-top:1px solid #F0EADC;border-left:2px solid #C6CFC7;margin-bottom:6px">{{ o.t }}</div>
+            </sc-for>
+          </div>
+          <div style="background:#FFFDF9;border:1px solid #DFD8C9;border-radius:3px;padding:22px">
+            <h3 style="font:400 19px 'Newsreader',serif;margin:0 0 10px">How you're assessed</h3>
+            <p style="font:300 13px/1.65 'Libre Franklin',sans-serif;color:#57514A;margin:0">Rubrics are fixed before each assignment opens. Papers are read by named evaluators, and the final project ends in a recorded oral defense. Every grade links to the work that earned it.</p>
+          </div>
+          <div style="background:#EAF1EC;border:1px solid #C6CFC7;border-radius:3px;padding:22px">
+            <div style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#2E5E48;margin-bottom:8px">{{ cp.intake }}</div>
+            <div style="font:400 19px/1.3 'Newsreader',serif;margin-bottom:14px">Ready to begin?</div>
+            <button style="width:100%;background:#2E5E48;color:#FFFDF9;border:none;border-radius:2px;padding:13px;font:500 13px 'Libre Franklin',sans-serif;cursor:pointer;margin-bottom:8px" style-hover="background:#24493A">Begin application</button>
+            <button style="width:100%;background:transparent;color:#2E5E48;border:1px solid #2E5E48;border-radius:2px;padding:12px;font:500 13px 'Libre Franklin',sans-serif;cursor:pointer" style-hover="background:#FFFDF9">Try the first lecture free</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+  </main>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    screen: 'catalog', t: 1104, playing: false, ans: null, claim: null,
+    quote: null, note: '', saved: 3,
+    draft: "The letters exchanged between the great courts of the fourteenth century BCE are, on their surface, documents of warmth. Rulers address one another as brothers; they ask after each other's households and send extravagant gifts. I argue that this language is a protocol of exchange rather than a description of standing.\n\nThe clearest evidence is asymmetry of need. Bronze required tin and copper that no palace could produce for itself, and the correspondence records kings writing repeatedly for shipments that did not arrive. A king who must ask three times is not an equal, whatever he is called.\n\nThe strongest objection to this reading comes from Liverani, who holds that",
+    tabs: 'course', ai: { ideas: true, counter: true, feedback: false, draft: false },
+    disclosure: "I used the tutor to pressure-test my thesis and to generate counterarguments, which I then answered in my own words. All prose in this submission is mine.",
+    submitted: false, openA: true, openB: false, openC: false,
+    catSel: null, catFilter: 'All', openCourse: null
+  };
+
+  catalog() {
+    const T = (label, s) => ({ label: label, courses: s.split(';').map(x => { const p = x.split('|'); return { code: p[0], title: p[1], cr: +p[2], pre: p[3] || '' }; }) });
+    return [
+      { id: 'wh', level: "Bachelor's", name: 'BA World History', years: '4 yrs', termsN: 8, hours: '18–22 h', intake: 'Next intake Jan 2027',
+        summary: 'Human history from the first cities to the present, read from primary sources and argued in writing. Ends in a thesis and a recorded oral defense.',
+        outcomes: ['Read a primary source as evidence, and say what it cannot show.', 'Build a defensible chronology across regions and centuries.', 'Write an argument that states and answers its strongest objection.'],
+        terms: [
+          T('Year 1 · Autumn', 'ORIE 100|Orientation to Independent Study|1;HIST 101|Prehistory to 1000 BCE|4;WRIT 110|Academic Writing & Citation|3;HIST 150|Reading Ancient Texts in Translation|3;ARTH 140|Material Culture & Artefacts|4'),
+          T('Year 1 · Spring', 'HIST 102|Early Civilisations|4|HIST 101;GEOG 120|Historical Geography|3;PHIL 105|Logic & Argument|3;LANG 101|Latin or Greek I|5'),
+          T('Year 2 · Autumn', 'HIST 210|World History I: Antiquity|4|HIST 102;HIST 240|Sources & Historical Method|3|WRIT 110;PHIL 180|Ancient Political Thought|3|PHIL 105;LANG 102|Latin or Greek II|5|LANG 101'),
+          T('Year 2 · Spring', 'HIST 211|World History II: Classical & Late Antique|4|HIST 210;HIST 320|Archaeology Seminar|3|HIST 240;ECON 150|Economic History of the Pre-modern World|4;HIST 260|Religion & Ritual in Antiquity|4'),
+          T('Year 3 · Autumn', 'HIST 310|Medieval Worlds, 500–1500|4|HIST 211;HIST 330|Historiography|4|HIST 240;CONC 1|Regional Concentration I|4;ELEC 1|Elective|3'),
+          T('Year 3 · Spring', 'HIST 311|Early Modern Global Connections|4|HIST 310;HIST 340|Digital & Quantitative Methods|3|HIST 240;CONC 2|Regional Concentration II|4|CONC 1;ELEC 2|Elective|4'),
+          T('Year 4 · Autumn', 'HIST 410|The Modern World Since 1750|4|HIST 311;CONC 3|Regional Concentration III|4|CONC 2;HIST 450|Research Design & Thesis Proposal|3|HIST 330;ELEC 3|Elective|4'),
+          T('Year 4 · Spring', 'HIST 499|Capstone Thesis|8|HIST 450;CONC 4|Regional Concentration IV|4|CONC 3;HIST 495|Oral Defense & Public Dossier|3|HIST 499')
+        ] },
+      { id: 'econ', level: "Bachelor's", name: 'BA Economics', years: '4 yrs', termsN: 8, hours: '18–22 h', intake: 'Next intake Jan 2027',
+        summary: 'Micro, macro, and econometrics taught alongside the history of economic thought, so models are always read against the arguments that produced them.',
+        outcomes: ['Build and critique a formal economic model.', 'Estimate a causal effect from real data and defend the identification.', 'Write policy analysis a non-economist can act on.'],
+        terms: [
+          T('Year 1 · Autumn', 'ORIE 100|Orientation to Independent Study|1;ECON 101|Principles of Microeconomics|4;MATH 110|Calculus for Social Science|4;WRIT 110|Academic Writing & Citation|3;HIST 120|Economic History of the Modern World|3'),
+          T('Year 1 · Spring', 'ECON 102|Principles of Macroeconomics|4|ECON 101;STAT 120|Statistics I|4|MATH 110;PHIL 105|Logic & Argument|3;ECON 130|Money & Banking|4|ECON 101'),
+          T('Year 2 · Autumn', 'ECON 201|Intermediate Microeconomics|4|ECON 101, MATH 110;STAT 220|Econometrics I|4|STAT 120;ECON 230|Public Finance|3|ECON 102;ELEC 1|Elective|4'),
+          T('Year 2 · Spring', 'ECON 202|Intermediate Macroeconomics|4|ECON 102;STAT 221|Econometrics II|4|STAT 220;ECON 240|International Trade|4|ECON 201;ECON 250|History of Economic Thought|3'),
+          T('Year 3 · Autumn', 'ECON 310|Labor Economics|4|ECON 201;ECON 320|Game Theory|4|ECON 201;ELEC 2|Elective|4;ELEC 3|Elective|3'),
+          T('Year 3 · Spring', 'ECON 330|Development Economics|4|ECON 202;ECON 340|Behavioral Economics|4|ECON 201;ECON 350|Applied Data Project|3|STAT 221;ELEC 4|Elective|4'),
+          T('Year 4 · Autumn', 'ECON 410|Economic Policy Seminar|4|ECON 330;ECON 450|Research Design & Thesis Proposal|3|STAT 221;ELEC 5|Elective|4;ELEC 6|Elective|4'),
+          T('Year 4 · Spring', 'ECON 499|Capstone Thesis|8|ECON 450;ECON 420|Political Economy|4|ECON 250;ECON 495|Oral Defense & Public Dossier|3|ECON 499')
+        ] },
+      { id: 'phil', level: "Bachelor's", name: 'BA Philosophy & Theology', years: '4 yrs', termsN: 8, hours: '18–22 h', intake: 'Next intake Jan 2027',
+        summary: 'The major questions of philosophy and the theological traditions that answered them, read in the original texts with two years of Greek or Latin.',
+        outcomes: ['Reconstruct an argument from a primary text and test it.', 'Read Greek or Latin philosophical prose with a lexicon.', 'Defend a position on a contested question in writing and aloud.'],
+        terms: [
+          T('Year 1 · Autumn', 'ORIE 100|Orientation to Independent Study|1;PHIL 101|Introduction to Philosophy|4;THEO 101|Scripture & Its Interpreters|4;WRIT 110|Academic Writing & Citation|3;PHIL 105|Logic & Argument|3'),
+          T('Year 1 · Spring', 'PHIL 120|Ancient Philosophy|4|PHIL 101;THEO 120|Early Christian Thought|4|THEO 101;LANG 101|Greek or Latin I|5;HIST 102|Early Civilisations|3'),
+          T('Year 2 · Autumn', 'PHIL 210|Medieval Philosophy|4|PHIL 120;THEO 210|Systematic Theology I|4|THEO 120;LANG 102|Greek or Latin II|5|LANG 101;PHIL 230|Ethics|3'),
+          T('Year 2 · Spring', 'PHIL 220|Early Modern Philosophy|4|PHIL 210;THEO 220|Systematic Theology II|4|THEO 210;PHIL 240|Philosophy of Religion|4;ELEC 1|Elective|3'),
+          T('Year 3 · Autumn', 'PHIL 310|Metaphysics|4|PHIL 220;THEO 310|Comparative Religious Traditions|4;PHIL 330|Political Philosophy|4|PHIL 230;ELEC 2|Elective|3'),
+          T('Year 3 · Spring', 'PHIL 320|Epistemology|4|PHIL 220;THEO 320|Moral Theology|4|PHIL 230;PHIL 340|Philosophy of Mind|4;ELEC 3|Elective|3'),
+          T('Year 4 · Autumn', 'PHIL 410|Major Author Seminar|4|PHIL 310;PHIL 450|Research Design & Thesis Proposal|3;ELEC 4|Elective|4;ELEC 5|Elective|4'),
+          T('Year 4 · Spring', 'PHIL 499|Capstone Thesis|8|PHIL 450;THEO 410|Theology Seminar|4|THEO 320;PHIL 495|Oral Defense & Public Dossier|3|PHIL 499')
+        ] },
+      { id: 'cs', level: "Bachelor's", name: 'BS Computer Science', years: '4 yrs', termsN: 8, hours: '20–24 h', intake: 'Next intake Jan 2027',
+        summary: 'Programming, theory, and systems built up in sequence, with every project committed to a public repository you can show an employer.',
+        outcomes: ['Design and analyse algorithms with proofs of correctness.', 'Build and ship a working system with tests and documentation.', 'Reason about the security and ethical consequences of software.'],
+        terms: [
+          T('Year 1 · Autumn', 'ORIE 100|Orientation to Independent Study|1;CS 101|Programming Fundamentals|4;MATH 120|Discrete Mathematics|4;MATH 130|Calculus I|4;WRIT 110|Academic Writing & Citation|3'),
+          T('Year 1 · Spring', 'CS 102|Data Structures|4|CS 101;MATH 131|Calculus II|4|MATH 130;CS 110|Computer Systems|4|CS 101;PHIL 105|Logic & Argument|3'),
+          T('Year 2 · Autumn', 'CS 201|Algorithms|4|CS 102, MATH 120;MATH 210|Linear Algebra|4|MATH 131;CS 210|Databases|4|CS 102;ELEC 1|Elective|3'),
+          T('Year 2 · Spring', 'CS 220|Operating Systems|4|CS 110;CS 230|Software Engineering|4|CS 102;STAT 210|Probability & Statistics|4|MATH 131;ELEC 2|Elective|3'),
+          T('Year 3 · Autumn', 'CS 310|Theory of Computation|4|CS 201;CS 320|Computer Networks|4|CS 220;CS 330|Machine Learning|4|MATH 210, STAT 210;ELEC 3|Elective|3'),
+          T('Year 3 · Spring', 'CS 340|Programming Languages|4|CS 201;CS 350|Security|4|CS 220;CS 360|Human–Computer Interaction|3|CS 230;ELEC 4|Elective|4'),
+          T('Year 4 · Autumn', 'CS 410|Distributed Systems|4|CS 320;CS 450|Capstone Proposal|3|CS 230;ELEC 5|Elective|4;ELEC 6|Elective|4'),
+          T('Year 4 · Spring', 'CS 499|Capstone Project|8|CS 450;CS 420|Ethics of Computing|4;CS 495|Oral Defense & Public Dossier|3|CS 499')
+        ] },
+      { id: 'ds', level: "Master's", name: 'MS Data Science', years: '2 yrs', termsN: 4, hours: '15–18 h', intake: 'Next intake Sep 2027',
+        summary: 'A part-time graduate program in inference, machine learning, and causal analysis for working professionals, ending in an applied capstone on real data.',
+        outcomes: ['Choose and defend the right model for a question.', 'Separate correlation from causation in observational data.', 'Communicate uncertainty honestly to decision-makers.'],
+        terms: [
+          T('Year 1 · Autumn', 'DS 501|Statistical Inference|3;DS 510|Programming for Data Science|3;DS 520|Data Management|3'),
+          T('Year 1 · Spring', 'DS 530|Machine Learning|3|DS 501, DS 510;DS 540|Causal Inference|3|DS 501;DS 550|Data Visualisation|3|DS 510'),
+          T('Year 2 · Autumn', 'DS 610|Deep Learning|3|DS 530;DS 620|Experimental Design|3|DS 540;ELEC 1|Elective|3'),
+          T('Year 2 · Spring', 'DS 690|Applied Capstone|6|DS 610, DS 620;DS 695|Oral Defense & Public Dossier|3|DS 690')
+        ] },
+      { id: 'cert', level: 'Certificate', name: 'Certificate in Historical Research', years: '1 yr', termsN: 2, hours: '8–10 h', intake: 'Rolling start',
+        summary: 'A one-year, part-time sequence in source criticism and research methods for writers, genealogists, and anyone preparing for graduate study.',
+        outcomes: ['Locate, date, and assess an archival source.', 'Design a research question the evidence can answer.', 'Produce a cited research report from primary material.'],
+        terms: [
+          T('Term 1', 'HIST 240|Sources & Historical Method|3;WRIT 110|Academic Writing & Citation|3;HIST 150|Reading Ancient Texts in Translation|3'),
+          T('Term 2', 'HIST 340|Digital & Quantitative Methods|3|HIST 240;HIST 380|Research Practicum|4|HIST 240')
+        ] }
+    ];
+  }
+
+  courseInfo() {
+    return {
+      desc: {
+        'ORIE 100': 'How independent study works here: the integrity agreement, the AI-use levels, how rubrics and oral defenses run, and how to plan a week.',
+        'HIST 101': 'From the first toolmakers to the Late Bronze Age: how we know anything about people who left no writing.',
+        'HIST 102': 'Mesopotamia, Egypt, the Indus, and early China compared — cities, scripts, kingship, and the state.',
+        'HIST 150': 'Close reading of ancient texts in translation, with attention to what a translation hides.',
+        'HIST 210': 'Fourteen modules from the first cities to the end of the Bronze Age, taught from an approved corpus of 23 sources.',
+        'HIST 211': 'Persia, Greece, Rome, the Mauryas and Han, through to the transformations of late antiquity.',
+        'HIST 240': 'Provenance, bias, dating, and corroboration. The core methods course; every later paper depends on it.',
+        'HIST 310': 'Byzantium, the Islamic caliphates, Latin Christendom, the Mongols, and the Indian Ocean world.',
+        'HIST 330': 'How historians have argued about the past, from Herodotus to the global turn.',
+        'HIST 450': 'Choose a question, build a source base, and defend a thesis proposal before a reviewer.',
+        'HIST 499': 'A 12,000-word thesis on original research, supervised by a named evaluator.',
+        'HIST 495': 'A recorded 30-minute oral defense of the thesis, and publication of your public dossier.',
+        'WRIT 110': 'Argument, structure, and citation. Every claim located; every quotation checked.',
+        'LANG 101': 'Grammar and reading from the first week, built toward unadapted prose by the end of year two.'
+      },
+      units: {
+        'HIST 101': ['Deep time and the evidence for it', 'The Neolithic transition', 'Villages to towns', 'Metal, trade, and inequality', 'Writing and the end of prehistory'],
+        'HIST 102': ['Sumer and the first cities', 'Egypt under the Old Kingdom', 'The Indus cities', 'Shang China and oracle bones', 'Comparing early states'],
+        'HIST 210': ['The first cities', 'Kingship and law: Hammurabi to the Hittites', 'Egypt, Kush, and the Nile world', 'The Bronze Age world: trade, palaces, collapse', 'Iron, empires, and the Assyrians', 'Israel and the Levant', 'Persia', 'Review and midterm'],
+        'HIST 211': ['Archaic and Classical Greece', 'Alexander and the Hellenistic world', 'The Roman Republic', 'Empire: Rome and Han compared', 'Late antiquity and its religions'],
+        'HIST 240': ['What counts as a source', 'Provenance and transmission', 'Bias, silence, and the archive', 'Corroboration and dating', 'Writing from evidence'],
+        'HIST 310': ['Byzantium', 'The rise of Islam and the caliphates', 'Latin Christendom', 'The Mongol world', 'The Indian Ocean economy'],
+        'HIST 311': ['The Atlantic world', 'Gunpowder empires', 'Silver and global trade', 'Reformation and confessional states', 'Science and its publics'],
+        'HIST 410': ['Revolutions, 1750–1850', 'Industry and empire', 'World wars', 'Decolonisation', 'Globalisation and its critics'],
+        'HIST 499': ['Literature review', 'Source chapter drafts', 'Full draft and reviewer response', 'Revision', 'Final submission']
+      }
+    };
+  }
+
+  scheduleFor(prog, prefix, statusOf) {
+    const s = this.state, info = this.courseInfo();
+    let n = 0, total = 0, count = 0;
+    const terms = prog.terms.map((t, ti) => {
+      const cr = t.courses.reduce((a, c) => a + c.cr, 0);
+      total += cr; count += t.courses.length;
+      return {
+        num: 'TERM ' + String(ti + 1).padStart(2, '0'), label: t.label,
+        meta: t.courses.length + ' COURSES · ' + cr + ' CR', short: t.courses.length + ' courses · ' + cr + ' cr',
+        courses: t.courses.map(c => {
+          n++;
+          const key = prefix + prog.id + ':' + c.code, open = s.openCourse === key;
+          const isConc = c.code.indexOf('CONC') === 0, isElec = c.code.indexOf('ELEC') === 0;
+          const units = (info.units[c.code] || []).map((u, i) => ({ n: 'UNIT ' + (i + 1), t: u }));
+          let desc = info.desc[c.code];
+          if (!desc) desc = isConc ? 'One course in your chosen region — the Mediterranean, East Asia, South Asia, Africa, or the Americas — taken in sequence across years 3 and 4.'
+            : isElec ? 'Your choice from any program in the catalog, subject to prerequisites. Approved with your advisor at the start of the term.'
+            : c.title + ' — the full syllabus, reading list, and rubric are published here once the course passes academic review.';
+          const st = statusOf ? statusOf(c.code) : null;
+          const stMap = { COMPLETE: ['#2E5E48', '#FFFDF9', '#2E5E48'], 'IN PROGRESS': ['#FFFDF9', '#2E5E48', '#2E5E48'], PLANNED: ['#EDE7D9', '#57514A', '#EDE7D9'], LOCKED: ['#F2EEE4', '#7C766B', '#C9C2B4'] };
+          const sc = st ? stMap[st] : ['transparent', 'transparent', 'transparent'];
+          return {
+            n: String(n).padStart(2, '0'), code: isConc || isElec ? '—' : c.code, title: c.title,
+            crText: c.cr + ' CR', prereq: c.pre || 'None',
+            prereqText: c.pre ? 'Requires ' + c.pre : '',
+            open: open, chev: open ? '−' : '+',
+            toggle: () => this.setState(st2 => ({ openCourse: st2.openCourse === key ? null : key })),
+            desc: desc, units: units, hasUnits: units.length > 0,
+            time: '15 weeks · about ' + (c.cr * 3) + ' h per week',
+            assess: /Thesis|Capstone/.test(c.title) ? 'Staged drafts · named evaluator · oral defense'
+              : /Defense/.test(c.title) ? 'Recorded oral examination · pass / fail'
+              : c.code.indexOf('LANG') === 0 ? 'Weekly translation · two sight-reading exams'
+              : c.code === 'ORIE 100' ? 'Integrity agreement · planning exercise · pass / fail'
+              : 'Quizzes 20 · Papers 35 · Seminar 15 · Midterm 15 · Final 15',
+            status: st || '', stBg: sc[0], stFg: sc[1], stBorder: sc[2]
+          };
+        })
+      };
+    });
+    return { terms: terms, total: total, count: count };
+  }
+
+  go(s) { return () => this.setState({ screen: s }); }
+  u(s) { return this.state.screen === s ? '#2E5E48' : 'transparent'; }
+
+  fmt(t) { const m = Math.floor(t / 60), s = t % 60; return m + ':' + String(s).padStart(2, '0'); }
+
+  answers() {
+    return {
+      simpler: {
+        label: 'Plainer restatement',
+        title: 'The short version',
+        b1: "Bronze needs two metals. Tin and copper almost never occur in the same place, and neither occurs near the big palaces. So every palace had to import at least one of them, constantly, from people it did not rule.",
+        b2: "That is the whole point of this segment: their most important material — for tools, for weapons, for prestige — could only be had by keeping foreign relationships alive. Prosperity and vulnerability were the same fact.",
+        c1: 'CLINE 2021, ch. 2, pp. 44–51 — trade and metal supply',
+        c2: 'ULUBURUN CATALOGUE, INA — 10 t copper, 1 t tin'
+      },
+      deeper: {
+        label: 'Deeper',
+        title: 'What the ratio actually demands',
+        b1: "Bronze runs roughly nine parts copper to one part tin. The Uluburun ship carried about ten tonnes of copper ingots and one tonne of tin — a ratio close enough to working bronze that the cargo reads as a deliberate alloy shipment, not a random haul.",
+        b2: "That single wreck implies a supply chain competent enough to assemble matched quantities of two metals from different regions and move them together by sea. Infrastructure of that quality does not appear in the archive by accident, and it does not survive a shock lightly.",
+        c1: 'ULUBURUN CATALOGUE, INA — cargo manifest, items 1–40',
+        c2: 'CLINE 2021, 48–50 — reading the manifest'
+      },
+      example: {
+        label: 'Worked example',
+        title: 'EA 35: the king of Alashiya writes',
+        b1: "In Amarna letter EA 35 the Cypriot king sends 500 talents of copper to Egypt with an apology — his land has been struck by plague — and then asks for what he wants in return. He calls Akhenaten his brother and uses the deferential formula throughout.",
+        b2: "Read it twice. The first reading gives you diplomatic courtesy between equals. The second gives you a supplier explaining a shortfall to a customer he cannot afford to lose. The letter does not tell you which reading is right — that is the argument you are being asked to make.",
+        c1: 'MORAN 1992, EA 35, pp. 107–109',
+        c2: 'CLINE 2021, 61–64 — the Alashiya problem'
+      },
+      counter: {
+        label: 'The disagreement',
+        title: 'Cline and Liverani read this differently',
+        b1: "Cline treats the collapse as a systems failure: a network so interdependent that a shock anywhere propagated everywhere. On that account the metal dependency I have just described is the mechanism of failure.",
+        b2: "Liverani objects that this mistakes a change of political form for a catastrophe. Palace redistribution ends; trade and population do not stop. The corpus you have been assigned contains both arguments, and the module does not settle it for you — your essay has to.",
+        c1: 'CLINE 2021, 139–170 — systems collapse',
+        c2: 'LIVERANI, "The Collapse of the Near Eastern Regional System", 1987'
+      },
+      quiz: {
+        label: 'Comprehension check',
+        title: 'Three questions on what you just heard',
+        b1: "1. Name the two metals a palace had to import and say which one travelled furthest. 2. Explain why the Uluburun cargo ratio matters to the argument. 3. State the difference between 'the palaces were interdependent' and 'interdependence caused the collapse'.",
+        b2: "Answer aloud or in the note field. Your answers are scored against this lecture's source segments only — if the corpus does not support an answer, you will be told so rather than marked wrong.",
+        c1: 'GROUNDED IN SEGMENTS 15:02–23:48',
+        c2: 'ITEMS MAPPED TO LO3, LO4'
+      }
+    };
+  }
+
+  claims() {
+    return {
+      S1: { status: 'CORROBORATED · 2 SOURCES AGREE', color: '#2E5E48', source: 'Uluburun wreck catalogue', loc: 'Items 1–40 · INA, Bodrum', kind: 'PRIMARY · ARCHAEOLOGICAL',
+        excerpt: '354 copper oxhide ingots and approximately one tonne of tin, stowed amidships; Cypriot copper by lead-isotope analysis.',
+        note: 'The lecture claim that tin came from far east of the palaces rests on isotope and trace-element work, not on any text. Cline reports it at 48–50.' },
+      S2: { status: 'SUPPORTED · READING IS CONTESTED', color: '#2E5E48', source: 'Moran, The Amarna Letters', loc: 'EA 35 · pp. 107–109', kind: 'PRIMARY · TRANSLATION',
+        excerpt: '"Send me much copper… and I will send you whatever you desire from my land." — the king of Alashiya to the king of Egypt.',
+        note: 'The words are not in dispute. Whether they show parity or dependency is exactly the question your essay has to answer.' },
+      S3: { status: 'DISPUTED · THE CORPUS DISAGREES', color: '#8A6A2A', source: 'Cline 2021 vs. Liverani 1987', loc: 'Cline 139–170 · Liverani 66–73', kind: 'SECONDARY · CONFLICT',
+        excerpt: 'Cline: a systems collapse propagating through a connected network. Liverani: the end of a political form, not of a civilisation.',
+        note: 'This segment is marked disputed deliberately. The lecture will not resolve it, and a quiz item will never require you to pick a side — only to state the evidence each reading depends on.' }
+      };
+  }
+
+  quotes() {
+    return {
+      Q1: { text: 'The language of kinship in these archives is a protocol, not a description. It regulates what may be asked for and in what tone; it does not tell us who needed whom.', cite: 'Cline, Eric H. 1177 B.C.: The Year Civilization Collapsed. Rev. ed. Princeton: Princeton University Press, 2021, 62.' },
+      Q2: { text: 'Cyprus held the copper, and the Cypriot king writes with a confidence that sits oddly beside the deferential formulas he is obliged to use.', cite: 'Cline, Eric H. 1177 B.C.: The Year Civilization Collapsed. Rev. ed. Princeton: Princeton University Press, 2021, 62–63.' },
+      Q3: { text: 'What survives at Amarna is what one Egyptian administration chose to keep, in one place, for a few decades.', cite: 'Cline, Eric H. 1177 B.C.: The Year Civilization Collapsed. Rev. ed. Princeton: Princeton University Press, 2021, 63.' }
+    };
+  }
+
+  catalogVals() {
+    const s = this.state, progs = this.catalog();
+    const filters = ['All', "Bachelor's", "Master's", 'Certificate'];
+    const shown = progs.filter(p => s.catFilter === 'All' || p.level === s.catFilter);
+    const sel = progs.find(p => p.id === s.catSel);
+    const cs = sel ? this.scheduleFor(sel, 'cat:', null) : null;
+    const done = ['ORIE 100', 'HIST 101', 'WRIT 110', 'HIST 150', 'ARTH 140', 'HIST 102', 'GEOG 120', 'PHIL 105', 'LANG 101'];
+    const active = ['HIST 210', 'HIST 240', 'PHIL 180', 'LANG 102'];
+    const locked = ['HIST 320', 'HIST 499', 'HIST 495'];
+    const my = this.scheduleFor(progs[0], 'my:', c => done.indexOf(c) > -1 ? 'COMPLETE' : active.indexOf(c) > -1 ? 'IN PROGRESS' : locked.indexOf(c) > -1 ? 'LOCKED' : 'PLANNED');
+    return {
+      goCatalog: () => this.setState({ screen: 'catalog', catSel: null }),
+      uCatalog: this.u('catalog'), isCatalog: s.screen === 'catalog',
+      catList: !sel, catDetail: !!sel,
+      catFilters: filters.map(f => ({ label: f, pick: () => this.setState({ catFilter: f }),
+        bg: s.catFilter === f ? '#2E5E48' : '#FFFDF9', fg: s.catFilter === f ? '#FFFDF9' : '#3D3A34', border: s.catFilter === f ? '#2E5E48' : '#DFD8C9' })),
+      catCount: shown.length + (shown.length === 1 ? ' PROGRAM' : ' PROGRAMS'),
+      catPrograms: shown.map(p => { const sc = this.scheduleFor(p, 'x:', null);
+        return { level: p.level, name: p.name, summary: p.summary, years: p.years, intake: p.intake, credits: sc.total, count: sc.count,
+          open: () => { this.setState({ catSel: p.id, openCourse: null }); window.scrollTo(0, 0); } }; }),
+      catBack: () => this.setState({ catSel: null, openCourse: null }),
+      cp: sel ? { level: sel.level, name: sel.name, summary: sel.summary, years: sel.years, termsN: sel.termsN, hours: sel.hours, intake: sel.intake, credits: cs.total, count: cs.count } : {},
+      cpOutcomes: sel ? sel.outcomes.map(t => ({ t: t })) : [],
+      catTerms: cs ? cs.terms : [],
+      myTerms: my.terms, myCount: my.count, myCredits: my.total
+    };
+  }
+
+  componentWillUnmount() { clearInterval(this._iv); }
+
+  play = () => {
+    if (this.state.playing) { clearInterval(this._iv); this.setState({ playing: false }); return; }
+    this.setState({ playing: true, ans: null });
+    this._iv = setInterval(() => this.setState(s => {
+      if (s.t >= 2520) { clearInterval(this._iv); return { playing: false, t: 2520 }; }
+      return { t: s.t + 1 };
+    }), 1000);
+  };
+
+  interrupt(k) { return () => { clearInterval(this._iv); this.setState({ playing: false, ans: k }); }; }
+
+  words() { return this.state.draft.trim().split(/\s+/).filter(Boolean).length; }
+
+  renderVals() {
+    const s = this.state, A = this.answers()[s.ans], C = s.claim ? this.claims()[s.claim] : null,
+      Q = s.quote ? this.quotes()[s.quote] : null, w = this.words(), ai = s.ai;
+    const chk = v => ({ k: v ? '#2E5E48' : 'transparent', m: v ? '✓' : '', b: v ? '#2E5E48' : '#DFD8C9', f: v ? '#EAF1EC' : '#FFFDF9' });
+    const ci = chk(ai.ideas), cc = chk(ai.counter), cf = chk(ai.feedback), cd = chk(ai.draft);
+    const tog = k => () => this.setState(st => ({ ai: Object.assign({}, st.ai, { [k]: !st.ai[k] }) }));
+
+    return {
+      goDash: this.go('dash'), goProgram: this.go('program'), goCourse: this.go('course'),
+      goLecture: this.go('lecture'), goReading: this.go('reading'), goEssay: this.go('essay'),
+      goRecords: this.go('records'), goPortfolio: this.go('portfolio'),
+      uDash: this.u('dash'), uProgram: this.u('program'), uCourse: this.u('course'),
+      uLecture: this.u('lecture'), uReading: this.u('reading'), uEssay: this.u('essay'),
+      uRecords: this.u('records'), uPortfolio: this.u('portfolio'),
+      isDash: s.screen === 'dash', isProgram: s.screen === 'program', isCourse: s.screen === 'course',
+      isLecture: s.screen === 'lecture', isReading: s.screen === 'reading', isEssay: s.screen === 'essay',
+      isRecords: s.screen === 'records', isPortfolio: s.screen === 'portfolio',
+
+      clock: this.fmt(s.t), pct: (s.t / 2520 * 100).toFixed(1) + '%',
+      playIcon: s.playing ? '❙❙' : '▶', mode: s.playing ? 'PLAYING' : 'PAUSED',
+      toggle: this.play,
+      askSimpler: this.interrupt('simpler'), askDeeper: this.interrupt('deeper'),
+      askExample: this.interrupt('example'), askCounter: this.interrupt('counter'),
+      askQuiz: this.interrupt('quiz'),
+      hasAnswer: !!A, ansLabel: A ? A.label : '', ansTitle: A ? A.title : '',
+      ansBody1: A ? A.b1 : '', ansBody2: A ? A.b2 : '', ansCite1: A ? A.c1 : '', ansCite2: A ? A.c2 : '',
+      resume: this.play,
+
+      hasClaim: !!C, claimId: s.claim || '', claimStatus: C ? C.status : '', claimColor: C ? C.color : '#57514A',
+      claimSource: C ? C.source : '', claimLoc: C ? C.loc : '', claimKind: C ? C.kind : '',
+      claimExcerpt: C ? C.excerpt : '', claimNote: C ? C.note : '',
+      pickC1: () => this.setState({ claim: 'S1' }), pickC2: () => this.setState({ claim: 'S2' }),
+      pickC3: () => this.setState({ claim: 'S3' }), closeClaim: () => this.setState({ claim: null }),
+      bg1: s.claim === 'S1' ? '#FBF8F1' : 'transparent',
+      bg2: s.claim === 'S2' ? '#FBF8F1' : 'transparent',
+      bg3: s.claim === 'S3' ? '#FBF8F1' : 'transparent',
+
+      hasQuote: !!Q, quoteText: Q ? Q.text : '', quoteCite: Q ? Q.cite : '', noteText: s.note,
+      pickQ1: () => this.setState({ quote: 'Q1', note: '' }), pickQ2: () => this.setState({ quote: 'Q2', note: '' }),
+      pickQ3: () => this.setState({ quote: 'Q3', note: '' }),
+      closeQuote: () => this.setState({ quote: null }),
+      onNote: e => this.setState({ note: e.target.value }),
+      saveQuote: () => this.setState(st => ({ quote: null, note: '', saved: st.saved + 1 })),
+      savedCount: s.saved,
+
+      draft: s.draft, onDraft: e => this.setState({ draft: e.target.value }),
+      words: w.toLocaleString(), wcColor: w > 1500 ? '#8A6A2A' : '#57514A', savedAgo: '2 min ago',
+      kIdeas: ci.k, mIdeas: ci.m, bIdeas: ci.b, fIdeas: ci.f,
+      kCounter: cc.k, mCounter: cc.m, bCounter: cc.b, fCounter: cc.f,
+      kFeedback: cf.k, mFeedback: cf.m, bFeedback: cf.b, fFeedback: cf.f,
+      kDraft: cd.k ? '#8A6A2A' : 'transparent', mDraft: cd.m, bDraft: ai.draft ? '#8A6A2A' : '#DFD8C9', fDraft: ai.draft ? '#FAF4E4' : '#FFFDF9',
+      tIdeas: tog('ideas'), tCounter: tog('counter'), tFeedback: tog('feedback'), tDraft: tog('draft'),
+      blocked: ai.draft,
+      disclosure: s.disclosure, onDisclosure: e => this.setState({ disclosure: e.target.value }),
+      submit: () => this.setState({ submitted: true }),
+      submitLabel: s.submitted ? 'Submitted ✓' : (ai.draft ? 'Submit to integrity review' : 'Submit with declaration'),
+      submitNote: s.submitted ? 'Receipt sealed. One revision remains.' : 'Your authorship receipt is attached automatically.',
+
+      tabCourse: () => this.setState({ tabs: 'course' }), tabTerm: () => this.setState({ tabs: 'term' }),
+      tabOutcome: () => this.setState({ tabs: 'outcome' }),
+      tbC: s.tabs === 'course' ? '#2E5E48' : 'transparent',
+      tbT: s.tabs === 'term' ? '#2E5E48' : 'transparent',
+      tbO: s.tabs === 'outcome' ? '#2E5E48' : 'transparent',
+      gbIsCourse: s.tabs === 'course', gbIsTerm: s.tabs === 'term', gbIsOutcome: s.tabs === 'outcome',
+
+      openA: s.openA, openB: s.openB, openC: s.openC,
+      tgA: () => this.setState(st => ({ openA: !st.openA })),
+      tgB: () => this.setState(st => ({ openB: !st.openB })),
+      tgC: () => this.setState(st => ({ openC: !st.openC })),
+      aLabel: s.openA ? 'CLOSE ✕' : 'INSPECT →', bLabel: s.openB ? 'CLOSE ✕' : 'INSPECT →',
+      cLabel: s.openC ? 'CLOSE ✕' : 'INSPECT →',
+      visLabel: 'PUBLIC · VERIFIABLE',
+
+      modules: [1,2,3,4,5,6,7,8,9,10,11,12,13,14].map(n => {
+        const done = n <= 3, cur = n === 4;
+        return { n: n, bg: done ? '#2E5E48' : (cur ? '#FFFDF9' : '#EDE7D9'),
+          fg: done ? '#FFFDF9' : (cur ? '#2E5E48' : '#8C857A'),
+          border: cur ? '2px solid #2E5E48' : 'none' };
+      }),
+      ...this.catalogVals(),
+      gradebook: [
+        ['Module 1 quiz', 'Quizzes', 'GRADED', '17/18', 'ITEMS →'],
+        ['Source analysis 1 — Uluburun manifest', 'Papers', 'GRADED', '94', 'RUBRIC →'],
+        ['Module 2 quiz', 'Quizzes', 'GRADED', '14/18', 'ITEMS →'],
+        ['Seminar — modules 1–3', 'Seminar', 'GRADED', '95', 'POSTS →'],
+        ['Source analysis 2 — Amarna letters', 'Papers', 'GRADED', '88', 'RUBRIC →'],
+        ['Module 4 quiz', 'Quizzes', 'LOCKED', '—', '—'],
+        ['Comparative essay', 'Papers', 'DRAFT v3', '—', 'RECEIPT →']
+      ].map(([name, cat, status, score, link]) => ({ name: name, cat: cat, status: status, score: score, link: link,
+        bg: status !== 'GRADED' ? '#FBF8F1' : 'transparent',
+        statusColor: status === 'GRADED' ? '#2E5E48' : (status === 'LOCKED' ? '#8C857A' : '#8A6A2A'),
+        scoreColor: score === '—' ? '#B5AEA2' : '#1C1A17', linkColor: link === '—' ? '#B5AEA2' : '#2E5E48' })),
+      rubricHistory: [
+        { name: 'Thesis & stakes', val: '23 / 25', pct: '92%', color: '#2E5E48' },
+        { name: 'Primary evidence', val: '24 / 25', pct: '96%', color: '#2E5E48' },
+        { name: 'Counterargument', val: '13 / 20', pct: '65%', color: '#8A6A2A' },
+        { name: 'Citation quality', val: '14 / 15', pct: '93%', color: '#2E5E48' },
+        { name: 'Prose & structure', val: '14 / 15', pct: '93%', color: '#2E5E48' }
+      ],
+      terms: [
+        ['YEAR 1 · AUTUMN 2024 — COMPLETE · 15 CR · 3.85', [['ORIE 100', 'Orientation to Independent Study', '1', 'P'], ['HIST 101', 'Prehistory to 1000 BCE', '4', 'A'], ['WRIT 110', 'Academic Writing & Citation', '3', 'A−'], ['HIST 150', 'Reading Ancient Texts in Translation', '3', 'A−'], ['ARTH 140', 'Material Culture & Artefacts', '4', 'B+']]],
+        ['YEAR 1 · SPRING 2025 — COMPLETE · 15 CR · 3.72', [['HIST 102', 'Early Civilisations', '4', 'B+'], ['GEOG 120', 'Historical Geography', '3', 'A'], ['PHIL 105', 'Logic & Argument', '3', 'A−'], ['LANG 101', 'Latin I', '5', 'A−']]],
+        ['YEAR 2 · AUTUMN 2026 — IN PROGRESS · 15 CR', [['HIST 210', 'World History I: Antiquity', '4', 'A−*'], ['HIST 240', 'Sources & Historical Method', '3', 'B+*'], ['PHIL 180', 'Ancient Political Thought', '3', 'A*'], ['LANG 102', 'Latin II', '5', 'A−*']]]
+      ].map(([head, rows]) => ({ head: head, rows: rows.map(([code, title, cr, grade]) => ({ code: code, title: title, cr: cr, grade: grade, color: grade.indexOf('*') > -1 ? '#8C857A' : '#1C1A17' })) })),
+      outcomes: [
+        ['LO1 · Situate events in a defensible chronology', 62, '31 ITEMS · WEAK', 'Errors cluster on relative dating across regions. Nine practice items are queued.'],
+        ['LO2 · Read a primary source as evidence', 91, '44 ITEMS · STRONG', ''],
+        ['LO3 · Explain economic interdependence in the Bronze Age', 84, '22 ITEMS', ''],
+        ['LO4 · State and answer the strongest objection', 65, '12 ITEMS · WEAK', 'Two reviewers have now flagged this. It is the single highest-leverage thing to fix this term.'],
+        ['LO6 · Cite accurately and locate every claim', 93, '38 ITEMS · STRONG', '']
+      ].map(([name, p, meta, note]) => ({ name: name, pct: p + '%', meta: p + '% · ' + meta, note: note, color: p < 70 ? '#8A6A2A' : '#2E5E48' })),
+      transparency: [
+        ['Lectures attended (generated, source-grounded)', '61 H · 23 SOURCES', '#57514A'],
+        ['Tutor sessions, logged with transcripts', '74 · 19 H 40 M', '#57514A'],
+        ['Papers with generated prose in the submission', '0 OF 4', '#2E5E48'],
+        ['Oral defenses, recorded and public', '1 · 22 MIN', '#57514A'],
+        ['Integrity flags raised, and their outcome', '1 · WITHDRAWN AFTER REVIEW', '#57514A']
+      ].map(([label, value, color]) => ({ label: label, value: value, color: color })),
+      rubric: [
+        { name: 'Thesis & stakes', pts: '25', desc: 'A contestable claim, not a summary.' },
+        { name: 'Use of primary evidence', pts: '25', desc: 'Quoted accurately, located, and read rather than gestured at.' },
+        { name: 'Counterargument', pts: '20', desc: 'The strongest objection, stated fairly, then answered.' },
+        { name: 'Citation quality', pts: '15', desc: 'Every claim traceable to a location in the corpus.' },
+        { name: 'Prose & structure', pts: '15', desc: 'Readable, ordered, and yours.' }
+      ],
+      receipt: [
+        ['MON 14:02', 'Notebook opened · 6 quotes tagged to thesis 2'],
+        ['MON 15:40', 'Outline v1 — three sections, counter in §3'],
+        ['TUE 09:12', 'Draft v1 · 620 words · 68 min of typing'],
+        ['TUE 18:30', 'Tutor session — "is my thesis falsifiable?" · 14 min'],
+        ['WED 11:05', 'Draft v3 · 1,140 words · Liverani objection added'],
+        ['PENDING', 'Submission, rubric scores, oral defense']
+      ].map(([stamp, text]) => ({
+        stamp: stamp, text: text,
+        stampColor: stamp === 'PENDING' ? '#B5AEA2' : '#8C857A',
+        color: stamp === 'PENDING' ? '#7C766B' : '#28251F'
+      })),
+      sections: [
+        ['§1 A cosmopolitan age', 1], ['§2 The Uluburun ship', 1], ['§3 Tin from the east', 1],
+        ['§4 Palace accounting', 1], ['§5 Kings as brothers', 2], ['§6 The Alashiya problem', 0],
+        ['§7 Trade and warfare', 0], ['§8 Diplomatic gifts', 0], ['§9 What the archive omits', 0]
+      ].map(([label, st]) => ({
+        label: label,
+        font: (st === 2 ? '500' : '400') + " 12.5px/1.5 'Libre Franklin',sans-serif",
+        color: st === 1 ? '#7C766B' : (st === 2 ? '#2E5E48' : '#3D3A34'),
+        deco: st === 1 ? 'line-through' : 'none'
+      })),
+      weights: [
+        { name: 'Papers · 35%', score: '93', pct: '93%', color: '#57514A' },
+        { name: 'Quizzes · 20%', score: '88', pct: '88%', color: '#57514A' },
+        { name: 'Seminar · 15%', score: '95', pct: '95%', color: '#57514A' },
+        { name: 'Midterm · 15%', score: '—', pct: '0%', color: '#B5AEA2' },
+        { name: 'Final · 15%', score: '—', pct: '0%', color: '#B5AEA2' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
